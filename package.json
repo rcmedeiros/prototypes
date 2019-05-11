@@ -1,0 +1,40 @@
+{
+  "name": "@rcmedeiros/prototypes",
+  "version": "1.0.0-dev",
+  "description": "Yet another general purpose JavaScript prototypes library",
+  "main": "index",
+  "types": "index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "docs": "python -m mkdocs serve",
+    "coverage": "nyc --reporter=html mocha",
+    "test": "nyc mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcmedeiros/prototypes.git"
+  },
+  "keywords": [
+    "prototypes",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Rafael Medeiros <rafael@rafaelmedeiros.com.br>",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/rcmedeiros/prototypes/issues"
+  },
+  "homepage": "https://github.com/rcmedeiros/prototypes#readme",
+  "devDependencies": {
+    "@rcmedeiros/tslint-config": "^1.0.2",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  }
+}

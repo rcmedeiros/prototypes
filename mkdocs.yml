@@ -1,0 +1,38 @@
+site_name: rcmedeiros/prototypes
+site_description:
+      Yet another general purpose JavaScript prototypes library.
+repo_url: https://github.com/rcmedeiros/prototypes/
+edit_uri: edit/develop/mkdocs
+dev_addr: 127.0.0.1:80
+
+docs_dir: mkdocs
+site_dir: docs
+
+markdown_extensions:
+      - nl2br
+      - codehilite:
+              linenums: None
+              noclasses: True
+              guess_lang: False
+              use_pygments: True
+              pygments_style: monokai
+      - smarty:
+              smart_angled_quotes: True
+      - admonition
+      - abbr
+      - def_list
+      - footnotes
+      - attr_list
+      - toc
+nav:
+    - Home: index.md
+    - Prototypes:
+        - array: array.md
+        - date:
+            - date: date.md
+            - patterns: pattern.md
+        - number: number.md
+        - string: string.md
+theme: material
+extra_css:
+      - /css/monokai.css
