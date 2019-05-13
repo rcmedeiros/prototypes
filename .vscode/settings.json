@@ -1,11 +1,20 @@
 {
     "cSpell.words": [
         "Cambria",
+        "acosh",
+        "asinh",
+        "atanh",
+        "cbrt",
         "designators",
         "eqeqeq",
+        "expm",
+        "fround",
+        "hhmm",
         "prototyped",
         "rcmedeiros",
         "scrollbar",
-        "scrollwrap"
+        "scrollwrap",
+        "tanh",
+        "trunc"
     ]
 }

@@ -26,11 +26,43 @@ interface Array<T> {
 interface Number {
     pow10(exponent: number): number;
     toDate(pattern: string): Date;
+    abs(): number;
+    acos(): number;
+    acosh(): number;
+    asin(): number;
+    asinh(): number;
+    atan(): number;
+    atanh(): number;
+    cbrt(): number;
+    ceil(): number;
+    clz32(): number;
+    cos(): number;
+    cosh(): number;
+    exp(): number;
+    expm1(): number;
+    floor(): number;
+    fround(): number;
+    log10(): number;
+    log1p(): number;
+    log2(): number;
+    round(): number;
+    sign(): number;
+    sin(): number;
+    sinh(): number;
+    sqrt(): number;
+    tan(): number;
+    tanh(): number;
+    trunc(): number;
 }
 
 interface Date {
     toLocalISOString(): string;
     toFormattedString(pattern?: string, timeZone?: string): string;
+    toFormattedString(pattern?: string, localTime?: boolean): string;
+    toFormattedNumber(pattern?: string, timeZone?: string): string;
+    toFormattedNumber(pattern?: string, localTime?: boolean): string;
     fromFormattedString(dateString: string, pattern: string): Date;
+    fromFormattedNumber(dateNumber: number, pattern: string): Date;
+    getEpochTime(): number;
 }
 
