@@ -58,6 +58,19 @@ jobs:
           command: |
             chmod +x .circleci/push_docs_site.sh
             ./.circleci/push_docs_site.sh
+  code_review:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - restore_cache:
+          key: dev_dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run ESLint
+          command: |
+            ./node_modules/.bin/eslint lib/** --format junit --output-file reports/eslint.xml
+      - store_test_results:
+          path: reports
 workflows:
   development_commit:
     jobs:
@@ -73,19 +86,13 @@ workflows:
           filters:
             branches:
               only: develop
-      # - audit_dependencies:
-      #     requires:
-      #       - dev_dependencies
-      #     filters:
-      #       branches:
-      #         only: develop
-      # - code_review:
-      #     requires:
-      #       - dev_dependencies
-      #       - dependencies
-      #     filters:
-      #       branches:
-      #         only: develop
+      - code_review:
+          requires:
+            - dev_dependencies
+            - dependencies
+          filters:
+            branches:
+              only: develop
       # - build:
       #     requires:
       #       - dev_dependencies
