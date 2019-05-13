@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
         "Cambria",
+        "Jinja",
+        "Pygments",
         "acosh",
         "asinh",
         "atanh",
@@ -10,7 +12,10 @@
         "expm",
         "fround",
         "hhmm",
+        "livereload",
+        "mkdocs",
         "prototyped",
+        "pymdown",
         "rcmedeiros",
         "scrollbar",
         "scrollwrap",
