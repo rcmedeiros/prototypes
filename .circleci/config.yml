@@ -89,12 +89,13 @@ jobs:
             --check-leaks --timeout 300 --recursive --exit test/*.test.js
             --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/test-results.xml
       - run:
-          name: Output lcov
-          command: ./node_modules/.bin/nyc report --reporter=text-lcov > coverage/lcov.info
+          name: Output reports
+          command: |
+            ./node_modules/.bin/nyc report --reporter=json
+            ./node_modules/.bin/nyc report --reporter=text-lcov > coverage/lcov.info
       - run:
           name: Report to Codecov
           command: |
-            ./node_modules/.bin/nyc report --reporter=json
             bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN} -f coverage/coverage-final.json
       - restore_cache:
           name: Restore SonarQube Scanner
