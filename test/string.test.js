@@ -1,4 +1,4 @@
-// cSpell:ignore aãàáäâ eèéëê iìíïî oóòôö uúùûü divid emember respons
+// cSpell:ignore aãàáäâ eèéëê iìíïî oóòôö uúùûü divid emember respons Myyyy
 'use strict';
 
 require('../index');
@@ -155,15 +155,14 @@ describe('String extensions', () => {
             expect('whatever'.replaceIgnoreCase(true, 'WHO\'VE')).to.be.null;
             expect('whatever'.replaceIgnoreCase(2, 'WHO\'VE')).to.be.null;
             expect('whatever'.replaceIgnoreCase(new RegExp(/abc/), 'WHO\'VE')).to.be.null;
-
         });
+
         it('should return the same string if pattern is not found', () => {
             expect('I will listen to those who have been ignored.'.replaceIgnoreCase('XYZ', 'X'))
                 .to.be.equal('I will listen to those who have been ignored.');
             expect('I will listen to those who have been ignored.'.replaceIgnoreCase('XYZ', 'X'))
                 .to.be.equal('I will listen to those who have been ignored.');
         });
-
     });
 
     describe('the replaceAll() function', () => {
@@ -189,13 +188,11 @@ describe('String extensions', () => {
             expect('I will take responsibility'.replaceAllIgnoreCase(true, 'X')).to.be.null;
             expect('I will take responsibility'.replaceAllIgnoreCase(2, 'X')).to.be.null;
             expect('I will take responsibility'.replaceAllIgnoreCase(new RegExp(/abc/), 'X')).to.be.null;
-
         });
         it('should return the same string if pattern is not found', () => {
             expect('I will take responsibility'.replaceAllIgnoreCase('XYZ', 'X')).to.be.equal('I will take responsibility');
             expect('I will take responsibility'.replaceAllIgnoreCase('XYZ', 'X')).to.be.equal('I will take responsibility');
         });
-
     });
 
     describe('the toDate() function', () => {
