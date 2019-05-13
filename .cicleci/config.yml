@@ -1,0 +1,310 @@
+version: 2.1
+jobs:
+  stamp:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: Stamp build number into package.json
+          command: sed -i "s/-dev/-${CIRCLE_BUILD_NUM}/g" package.json
+      - run:
+          name: Create .npmrc file
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - package.json
+            - .npmrc
+  dev_dependencies:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - restore_cache:
+          key: dev_dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Install development dependencies
+          command: |
+            chmod +x .circleci/install.sh
+            ./.circleci/install.sh dev
+      - save_cache:
+          key: dev_dependencies-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+  docs:
+    docker:
+      - image: python:3.7.2
+    steps:
+      - checkout
+      - restore_cache:
+          key: pydependencies5-{{ checksum "mkdocs/requirements.txt" }}
+      - run:
+          name: Install Python dependencies
+          command: |
+            pip install -r mkdocs/requirements.txt
+      - save_cache:
+          key: pydependencies5-{{ checksum "mkdocs/requirements.txt" }}
+          paths:
+            - '/usr/local/lib/python3.7/site-packages'
+      - run:
+          name: Build site
+          command: python -m mkdocs build --strict --verbose
+      - add_ssh_keys:
+          fingerprints:
+            - '60:d4:76:ed:99:f0:32:35:76:31:d1:b1:f6:8d:4b:e5'
+      - run:
+          name: Push new version
+          command: |
+            chmod +x .circleci/push_docs_site.sh
+            ./.circleci/push_docs_site.sh
+workflows:
+  development_commit:
+    jobs:
+      - stamp:
+          filters:
+            branches:
+              only: develop
+      - dev_dependencies:
+          filters:
+            branches:
+              only: develop
+      - docs:
+          filters:
+            branches:
+              only: develop
+      # - audit_dependencies:
+      #     requires:
+      #       - dev_dependencies
+      #     filters:
+      #       branches:
+      #         only: develop
+      # - code_review:
+      #     requires:
+      #       - dev_dependencies
+      #       - dependencies
+      #     filters:
+      #       branches:
+      #         only: develop
+      # - build:
+      #     requires:
+      #       - dev_dependencies
+      #     filters:
+      #       branches:
+      #         only: develop
+      # - test:
+      #     requires:
+      #       - dependencies
+      #       - dev_dependencies
+      #       - audit_dependencies
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: develop
+      # - deploy_dev:
+      #     requires:
+      #       - stamp
+      #       - test
+      #     filters:
+      #       branches:
+      #         only: develop
+  # staging_commit:
+  #   jobs:
+  #     - stamp:
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - docs:
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - dependencies:
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - dev_dependencies:
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - audit_dependencies:
+  #         requires:
+  #           - dev_dependencies
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - code_review:
+  #         requires:
+  #           - dev_dependencies
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - build:
+  #         production: true
+  #         requires:
+  #           - dev_dependencies
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - test:
+  #         requires:
+  #           - dependencies
+  #           - dev_dependencies
+  #           - audit_dependencies
+  #           - build
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - cache_release:
+  #         release_branch: true
+  #         requires:
+  #           - stamp
+  #           - test
+  #           - code_review
+  #           - docs
+  #         filters:
+  #           branches:
+  #             only: /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - cache_release:
+  #         master_branch: true
+  #         requires:
+  #           - stamp
+  #           - test
+  #           - code_review
+  #           - docs
+  #         filters:
+  #           branches:
+  #             only: master
+  # release:
+  #   jobs:
+  #     - check_release:
+  #         name: check_release_branch
+  #         release_branch: true
+  #         filters:
+  #           branches:
+  #             ignore: /.*/
+  #           tags:
+  #             only: /v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - check_release:
+  #         name: check_master_branch
+  #         master_branch: true
+  #         filters:
+  #           branches:
+  #             ignore: /.*/
+  #           tags:
+  #             only: /v[0-9]+(\.[0-9]+)+(\.[0-9]+)/
+  #     - hold:
+  #         type: approval
+  #         requires:
+  #           - check_master_branch
+  #         filters:
+  #           branches:
+  #             ignore: /.*/
+  #           tags:
+  #             only: /v[0-9]+(\.[0-9]+)+(\.[0-9]+)/
+  #     - deploy_release:
+  #         alpha: true
+  #         requires:
+  #           - check_release_branch
+  #         filters:
+  #           branches:
+  #             ignore: /.*/
+  #           tags:
+  #             only: /v\d+\.\d+\.\d+-(alpha)(\.\d){0,1}/
+  #     - deploy_release:
+  #         beta: true
+  #         requires:
+  #           - check_release_branch
+  #         filters:
+  #           branches:
+  #             ignore: /.*/
+  #           tags:
+  #             only: /v\d+\.\d+\.\d+-(beta)(\.\d){0,1}/
+  #     - deploy_release:
+  #         release_candidate: true
+  #         requires:
+  #           - check_release_branch
+  #         filters:
+  #           branches:
+  #             ignore: /.*/
+  #           tags:
+  #             only: /v\d+\.\d+\.\d+-(rc)(\.\d){0,1}/
+  #     - deploy_release:
+  #         stable: true
+  #         requires:
+  #           - hold
+  #         filters:
+  #           branches:
+  #             ignore: /.*/
+  #           tags:
+  #             only: /v[0-9]+(\.[0-9]+)+(\.[0-9]+)/
+  # random_commit:
+  #   jobs:
+  #     - dependencies:
+  #         filters:
+  #           branches:
+  #             ignore:
+  #               - develop
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - dev_dependencies:
+  #         filters:
+  #           branches:
+  #             ignore:
+  #               - develop
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - audit_dependencies:
+  #         requires:
+  #           - dev_dependencies
+  #         filters:
+  #           branches:
+  #             ignore:
+  #               - develop
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - code_review:
+  #         requires:
+  #           - dev_dependencies
+  #           - dependencies
+  #         filters:
+  #           branches:
+  #             ignore:
+  #               - develop
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - build:
+  #         requires:
+  #           - dev_dependencies
+  #         filters:
+  #           branches:
+  #             ignore:
+  #               - develop
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
+  #     - test:
+  #         requires:
+  #           - dependencies
+  #           - dev_dependencies
+  #           - build
+  #         filters:
+  #           branches:
+  #             ignore:
+  #               - develop
+  #               - master
+  #               - /release\/v\d+\.\d+\.\d+-(alpha|beta|rc)(\.\d){0,1}/
