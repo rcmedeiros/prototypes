@@ -21,7 +21,7 @@ n.pow10(-3); // => 0.005
 n.pow10(3); // => 5000
 ````
 
----
+___
 
 ## Single argument Math functions
 
