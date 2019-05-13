@@ -85,8 +85,8 @@ jobs:
       - run:
           name: Run Tests!
           command:
-            ./node_modules/.bin/nyc ./node_modules/.bin/mocha 
-            --check-leaks --timeout 300 --recursive -exit test/*.test.js 
+            ./node_modules/.bin/nyc ./node_modules/.bin/mocha
+            --check-leaks --timeout 300 --recursive --exit test/*.test.js
             --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/test-results.xml
       - run:
           name: Report to Codecov
@@ -110,6 +110,7 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.projectBaseDir=/home/circleci/project/ \
             -Dsonar.sources=. \
+            =Dsonar.exclusions=docs/**,test/**
             -Dsonar.login=${SONAR_LOGIN}
             cat -n .scannerwork/report-task.txt
       - save_cache:
