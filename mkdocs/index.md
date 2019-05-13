@@ -6,6 +6,8 @@ Yet another general purpose JavaScript prototypes library
 
 `npm install --save @rcmedeiros/prototypes`
 
+Thi package comes with no dependencies whatsoever. You'll only get the kb from the source code.
+
 ## Usage
 
 Just import it in the first module your package loads, maybe index.js/ts. No need to keep reference.
