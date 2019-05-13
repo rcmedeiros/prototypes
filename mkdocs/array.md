@@ -1,28 +1,38 @@
-# Array.prototype
+# Array
 
-## &lt;T&gt;.first(): T
+## first
+
+`Array<T>.prototype.first(): T`
 
 Returns the first item of an array
 
-```javascript
+```typescript
 const arr = [1,2,3,4,5];
-const first = arr.first(); // returns 1
+const first = arr.first(); // => 1
 ```
 
-## &lt;T&gt;.last(): T
+___
+
+## last
+
+`Array<T>.prototype.last(): T`
 
 Returns the last item of an array
 
-```javascript
+```typescript
 const arr = [1,2,3,4,5];
-const last = arr.last(); // returns 5
+const last = arr.last(); // => 5
 ```
 
-## &lt;T&gt;.secondLast(): T
+___
+
+## secondLast
+
+`Array<T>.prototype.secondLast(): T`
 
 Returns the second last item of an array
 
 ```javascript
 const arr = [1,2,3,4,5];
-const first = arr.secondLast(); // returns 4
+const first = arr.secondLast(); // => 4
 ```

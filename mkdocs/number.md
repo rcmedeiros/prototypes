@@ -1,17 +1,21 @@
 # Number
 
-## .pow10(exponent: number): number
+## pow10
+
+`Number<T>.prototype.pow10(exponent: number): number`
 
 Returns the number raised n times to the power of 10
 
-````javascript
+````typescript
 const n = 5;
-n.pow10(-3); // returns 0.005
-n.pow10(3); // returns 5000
+n.pow10(-3); // => 0.005
+n.pow10(3); // => 5000
 ````
 
 ---
 
-## .toDate(pattern: string): Date
+## toDate
 
-Shortcut to the prototype [Date.prototype.fromFormattedNumber](./date.md#fromformattednumberdatenumber-number-pattern-string-date)
+`Number<T>.prototype.toDate(pattern: string): Date`
+
+Alias of [Date.prototype.fromFormattedNumber](./date.md#fromformattednumber)
