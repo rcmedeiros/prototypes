@@ -15,3 +15,6 @@ TypeScript typings are included.
 ```typescript
 import '@rcmedeiros/prototypes';
 ```
+
+!!! note
+    The module comes with its [Declaration File](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html), meaning it can be imported seamlessly to a TypeScript project.

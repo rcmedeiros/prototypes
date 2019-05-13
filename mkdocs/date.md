@@ -1,4 +1,3 @@
-<!-- cSpell: ignore Myyyy -->
 # Date
 
 !!! important
@@ -35,7 +34,7 @@ d.fromFormattedString('6/9/19 11:50 pm GMT +05:30', 'M/d/yy h:m a z');
 
 `Date.prototype.fromFormattedNumber(dateNumber: number, pattern: string): Date`
 
-The same thing as the above function, accepting only full elements with no separators as [pattern](./pattern.md).
+The same as the above function, accepting only full elements with no separators as [pattern](./pattern.md).
 
 ```typescript
 const d = new Date(2019, 5, 11);
@@ -54,7 +53,7 @@ Returns the date according to the specified [pattern](./pattern.md).
 
 * If no pattern is specified, ISO 8601 *(`'yyyy-MM-ddTHH:mm:ssZ'`)* is assumed;
 * If no time zone is specified, UTC is assumed;
-* Time zone can also be the word *`local`*, thus assuming the environment local time.
+* Instead of a time zone, you can send **true** to the second parameter, thus assuming the environment local time.
 
 ```typescript
 const d = new Date(Date.UTC(2018, 5, 9, 16, 0, 30, 95));
@@ -67,15 +66,41 @@ d.toFormattedString('yyyy/MM/dd HH:mm:ss (z)', true); // 1980/06/09 13:00:30 (GM
 
 ---
 
+## toFormattedNumber
+
+`toFormattedNumber(pattern?: string, timeZone?: string): string`
+`toFormattedNumber(pattern?: string, localTime?: boolean): string`
+
+The same as the above function, accepting no separators as [pattern](./pattern.md).
+
+```typescript
+const d = new Date(2019, 5, 11);
+d.fromFormattedNumber(20190906, 'yyyyMMdd');
+// => Sun Jun 09 2019 00:00:00 GMT+0000
+
+
+___
+
 ## toLocalISOString
 
 `Date.prototype.toLocalISOString(): string`
 
-Returns local time in ISO format
+Returns local time in ISO 8601 format
 
 ```typescript
 const d = new Date();
 d.toLocalISOString(); // Just like toISOString(), but in the local format
 ```
+
+---
+
+## Constants
+
+```typescript
+Date.MIN = -8640000000000000; // Somewhere in 271.821 BC
+Date.MAX = 8640000000000000; // Somewhere in 275.760 AD
+```
+
+Returns minimum and maximum datetime values for sheer programmatic convenience.
 
 ---
