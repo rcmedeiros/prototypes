@@ -1,0 +1,854 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Yet another general purpose JavaScript prototypes library.">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
+    
+    
+      
+        <title>string - rcmedeiros/prototypes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="/css/theme.css">
+    
+      <link rel="stylesheet" href="/css/codehilite.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#string" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="rcmedeiros/prototypes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              rcmedeiros/prototypes
+            </span>
+            <span class="md-header-nav__topic">
+              string
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/rcmedeiros/prototypes/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="rcmedeiros/prototypes" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    rcmedeiros/prototypes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/rcmedeiros/prototypes/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Prototypes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Prototypes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../array/" title="array" class="md-nav__link">
+      array
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      date
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        date
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../date/" title="date" class="md-nav__link">
+      date
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pattern/" title="patterns" class="md-nav__link">
+      patterns
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../number/" title="number" class="md-nav__link">
+      number
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        string
+      </label>
+    
+    <a href="./" title="string" class="md-nav__link md-nav__link--active">
+      string
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#toascii" title="toASCII" class="md-nav__link">
+    toASCII
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leftpad" title="leftPad" class="md-nav__link">
+    leftPad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rightpad" title="rightPad" class="md-nav__link">
+    rightPad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#centerpad" title="centerPad" class="md-nav__link">
+    centerPad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isnumeric" title="isNumeric" class="md-nav__link">
+    isNumeric
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capitalize" title="capitalize" class="md-nav__link">
+    capitalize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contains" title="contains" class="md-nav__link">
+    contains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#containsignorecase" title="containsIgnoreCase" class="md-nav__link">
+    containsIgnoreCase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substringupto" title="substringUpTo" class="md-nav__link">
+    substringUpTo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substringuptolast" title="substringUpToLast" class="md-nav__link">
+    substringUpToLast
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substringfrom" title="substringFrom" class="md-nav__link">
+    substringFrom
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substringfromlast" title="substringFromLast" class="md-nav__link">
+    substringFromLast
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replaceignorecase" title="replaceIgnoreCase" class="md-nav__link">
+    replaceIgnoreCase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replaceall" title="replaceAll" class="md-nav__link">
+    replaceAll
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replaceallignorecase" title="replaceAllIgnoreCase" class="md-nav__link">
+    replaceAllIgnoreCase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#todate" title="toDate" class="md-nav__link">
+    toDate
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#toascii" title="toASCII" class="md-nav__link">
+    toASCII
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leftpad" title="leftPad" class="md-nav__link">
+    leftPad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rightpad" title="rightPad" class="md-nav__link">
+    rightPad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#centerpad" title="centerPad" class="md-nav__link">
+    centerPad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isnumeric" title="isNumeric" class="md-nav__link">
+    isNumeric
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capitalize" title="capitalize" class="md-nav__link">
+    capitalize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contains" title="contains" class="md-nav__link">
+    contains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#containsignorecase" title="containsIgnoreCase" class="md-nav__link">
+    containsIgnoreCase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substringupto" title="substringUpTo" class="md-nav__link">
+    substringUpTo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substringuptolast" title="substringUpToLast" class="md-nav__link">
+    substringUpToLast
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substringfrom" title="substringFrom" class="md-nav__link">
+    substringFrom
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substringfromlast" title="substringFromLast" class="md-nav__link">
+    substringFromLast
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replaceignorecase" title="replaceIgnoreCase" class="md-nav__link">
+    replaceIgnoreCase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replaceall" title="replaceAll" class="md-nav__link">
+    replaceAll
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replaceallignorecase" title="replaceAllIgnoreCase" class="md-nav__link">
+    replaceAllIgnoreCase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#todate" title="toDate" class="md-nav__link">
+    toDate
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/rcmedeiros/prototypes/edit/develop/mkdocs/string.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <!-- cSpell: ignore façade café résumé rgotten fromformattedstring divid respons -->
+
+<h1 id="string">String</h1>
+<h2 id="toascii">toASCII</h2>
+<p><code>String.prototype.toASCII(): string</code></p>
+<p>Strips the string of accented characters, downgrading the encode to simple ASCII</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">sample</span> <span class="o">=</span> <span class="s1">&#39;Façade Café Résumé&#39;</span>
+<span class="nx">sample</span><span class="p">.</span><span class="nx">toASCII</span><span class="p">();</span> <span class="c1">// =&gt; Facade Cafe Resume</span>
+</pre></div>
+
+
+<hr />
+<h2 id="leftpad">leftPad</h2>
+<p><code>String.prototype.leftPad(size: number, pad?: string): string</code></p>
+<p>Returns the string with the specified size, using the specified character to the lef to complete the length. If no character is specified, blank is assumed.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;123&#39;</span><span class="p">.</span><span class="nx">leftPad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">);</span> <span class="c1">// =&gt; &#39;__123&#39;</span>
+<span class="s1">&#39;123&#39;</span><span class="p">.</span><span class="nx">leftPad</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// =&gt; &#39;  123&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="rightpad">rightPad</h2>
+<p><code>String.prototype.rightPad(size: number, pad?: string): string</code></p>
+<p>Returns the string with the specified size, using the specified character to the right to complete the length. If no character is specified, blank is assumed.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;123&#39;</span><span class="p">.</span><span class="nx">leftPad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">);</span> <span class="c1">// =&gt; &#39;123__&#39;</span>
+<span class="s1">&#39;123&#39;</span><span class="p">.</span><span class="nx">leftPad</span><span class="p">(</span><span class="mi">5</span><span class="p">,);</span> <span class="c1">// =&gt; &#39;123  &#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="centerpad">centerPad</h2>
+<p><code>String.prototype.centerPad(size: number, pad?: string): string</code></p>
+<p>Returns the string with the specified size, using the specified character to both sides to complete the length, centering the word. If no character is specified, blank is assumed. If the number is even, the string will be one position to the left</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;12&#39;</span><span class="p">.</span><span class="nx">centerPad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">);</span> <span class="c1">// =&gt; &#39;a12aa&#39;</span>
+<span class="s1">&#39;12&#39;</span><span class="p">.</span><span class="nx">centerPad</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// =&gt; &#39;12 &#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="isnumeric">isNumeric</h2>
+<p><code>String.prototype.isNumeric(): boolean</code></p>
+<p>Returns true if the string represents a number</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;0&#39;</span><span class="p">.</span><span class="nx">isNumeric</span><span class="p">();</span> <span class="c1">// =&gt; true</span>
+<span class="s1">&#39;-1&#39;</span><span class="p">.</span><span class="nx">isNumeric</span><span class="p">();</span> <span class="c1">// =&gt; true</span>
+<span class="s1">&#39;1&#39;</span><span class="p">.</span><span class="nx">isNumeric</span><span class="p">();</span> <span class="c1">// =&gt; true</span>
+<span class="s1">&#39;-1.7&#39;</span><span class="p">.</span><span class="nx">isNumeric</span><span class="p">();</span> <span class="c1">// =&gt; true</span>
+<span class="s1">&#39;8e5&#39;</span><span class="p">.</span><span class="nx">isNumeric</span><span class="p">();</span> <span class="c1">// =&gt; true</span>
+<span class="s1">&#39;*2a&#39;</span><span class="p">.</span><span class="nx">isNumeric</span><span class="p">();</span> <span class="c1">// =&gt; false</span>
+<span class="s1">&#39;\t\t&#39;</span><span class="p">.</span><span class="nx">isNumeric</span><span class="p">();</span> <span class="c1">// =&gt; false</span>
+</pre></div>
+
+
+<hr />
+<h2 id="capitalize">capitalize</h2>
+<p><code>String.prototype.capitalize(find: string, replace: string): string</code></p>
+<p>Returns the string in lower case, except for the first letter of each word which will be upper cased.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;life before death&#39;</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">();</span> <span class="c1">// =&gt; &#39;Life Before Death&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="contains">contains</h2>
+<p><code>String.prototype.contains(str: string): string</code></p>
+<p>Returns true if the substring is present, case sensitive</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;strength before weakness&#39;</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">&#39;after&#39;</span><span class="p">);</span> <span class="c1">// false</span>
+<span class="s1">&#39;journey before destination&#39;</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">&#39;destination&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</pre></div>
+
+
+<hr />
+<h2 id="containsignorecase">containsIgnoreCase</h2>
+<p><code>String.prototype.containsIgnoreCase(str: string): string</code></p>
+<p>Returns true if the substring is present, regardless the case</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;I will protect those&#39;</span><span class="p">.</span><span class="nx">containsIgnoreCase</span><span class="p">(</span><span class="s1">&#39;PROTECT&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="s1">&#39;who cannot protect themselves&#39;</span><span class="p">.</span><span class="nx">containsIgnoreCase</span><span class="p">(</span><span class="s1">&#39;Those&#39;</span><span class="p">;)</span> <span class="c1">// false</span>
+</pre></div>
+
+
+<hr />
+<h2 id="substringupto">substringUpTo</h2>
+<p><code>String.prototype.substringUpTo(str: string): string</code></p>
+<p>Returns the string up until the <strong>first</strong> occurrence of the the specified substring, exclusive and case sensitive.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;I will unite instead of divide.&#39;</span><span class="p">.</span><span class="nx">substringUpTo</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;I will unit&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="substringuptolast">substringUpToLast</h2>
+<p><code>String.prototype.substringUpToLast(str: string): string</code></p>
+<p>Returns the string up until the <strong>last</strong> occurrence of the the specified substring, exclusive and case sensitive.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;I will unite instead of divide.&#39;</span><span class="p">.</span><span class="nx">substringUpToLast</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;I will unite instead of divid&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="substringfrom">substringFrom</h2>
+<p><code>String.prototype.substringFrom(str: string): string</code></p>
+<p>Returns the string from the <strong>first</strong> occurrence of the specified substring to the end. It&rsquo;s case sensitive.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;I will remember those who have been forgotten.&#39;</span><span class="p">.</span><span class="nx">substringFrom</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;remember those who have been forgotten.&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="substringfromlast">substringFromLast</h2>
+<p><code>String.prototype.substringFromLast(str: string): string</code></p>
+<p>Returns the string from the <strong>last</strong> occurrence of the specified substring to the end. It&rsquo;s case sensitive.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;I will remember those who have been forgotten.&#39;</span><span class="p">.</span><span class="nx">substringFrom</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;gotten.&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="replaceignorecase">replaceIgnoreCase</h2>
+<p><code>String.prototype.replaceIgnoreCase(find: string, replace: string): string</code></p>
+<p>Replaces the <strong>first</strong> occurrence of a substrings according to the declared arguments, regardless the case.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;I will listen to those who have been ignored.&#39;</span><span class="p">.</span><span class="nx">replaceIgnoreCase</span><span class="p">(</span><span class="s1">&#39;WHO HAVE&#39;</span><span class="p">,</span> <span class="s1">&#39;WHO\&#39;VE&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;I will listen to those WHO&#39;VE been ignored.&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="replaceall">replaceAll</h2>
+<p><code>String.prototype.replaceAll(find: string, replace: string): string</code></p>
+<p>Replaces all substrings according to the declared arguments. It&rsquo;s case sensitive.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;I will protect even those I hate&#39;</span><span class="p">.</span><span class="nx">replaceAll</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;I_will_protect_even_those_I_hate&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="replaceallignorecase">replaceAllIgnoreCase</h2>
+<p><code>String.prototype.replaceAllIgnoreCase(find: string, replace: string): string</code></p>
+<p>Replaces all substrings according to the declared arguments, regardless the case.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;I will take responsibility&#39;</span><span class="p">.</span><span class="nx">replaceAllIgnoreCase</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;! w!ll take respons!b!l!ty&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="todate">toDate</h2>
+<p><code>String.prototype.toDate(pattern: string): Date</code></p>
+<p>Alias of <a href="../date/#fromformattedstring">Date.prototype.fromFormattedString</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../number/" title="number" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                number
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.d9aa80ab.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
