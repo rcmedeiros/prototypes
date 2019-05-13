@@ -71,6 +71,55 @@ jobs:
             ./node_modules/.bin/eslint lib/** --format junit --output-file reports/eslint.xml
       - store_test_results:
           path: reports
+  test:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Development Dependencies
+          key: dev_dependencies-{{ checksum "package.json" }}
+      - restore_cache:
+          name: Restore Dependencies
+          key: dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run Tests!
+          command:
+            ./node_modules/.bin/nyc ./node_modules/.bin/mocha 
+            --check-leaks --timeout 300 --recursive -exit test/*.test.js 
+            --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/test-results.xml
+      - run:
+          name: Report to Codecov
+          command: |
+            ./node_modules/.bin/nyc report --reporter=json
+            bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN} -f coverage/coverage-final.json
+      - restore_cache:
+          name: Restore SonarQube Scanner
+          key: -sonar-scanner-3.3.0.1492-linux
+      - run:
+          name: Download SonarQube Scanner (if still necessary)
+          command: |
+            chmod +x .circleci/install_sonar-scanner.sh
+            ./.circleci/install_sonar-scanner.sh
+      - run:
+          name: Sonarcloud Scan
+          command: |
+            ./sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner \
+            -Dsonar.projectKey=prototypes \
+            -Dsonar.organization=rcmedeiros-github \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.projectBaseDir=/home/circleci/project/ \
+            -Dsonar.sources=. \
+            -Dsonar.login=${SONAR_LOGIN}
+            cat -n .scannerwork/report-task.txt
+      - save_cache:
+          name: Cache SonarQube Scanner
+          key: -sonar-scanner-3.3.0.1492-linux
+          paths:
+            - sonar-scanner-3.3.0.1492-linux
+            - /home/circleci/.sonar
+      - store_test_results:
+          path: reports
 workflows:
   development_commit:
     jobs:
@@ -92,21 +141,13 @@ workflows:
           filters:
             branches:
               only: develop
-      # - build:
-      #     requires:
-      #       - dev_dependencies
-      #     filters:
-      #       branches:
-      #         only: develop
-      # - test:
-      #     requires:
-      #       - dependencies
-      #       - dev_dependencies
-      #       - audit_dependencies
-      #       - build
-      #     filters:
-      #       branches:
-      #         only: develop
+      - test:
+          requires:
+            - dev_dependencies
+            - code_review
+          filters:
+            branches:
+              only: develop
       # - deploy_dev:
       #     requires:
       #       - stamp
