@@ -89,6 +89,9 @@ jobs:
             --check-leaks --timeout 300 --recursive --exit test/*.test.js
             --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/test-results.xml
       - run:
+          name: Output lcov
+          command: ./node_modules/.bin/nyc report --reporter=text-lcov > coverage/lcov.info
+      - run:
           name: Report to Codecov
           command: |
             ./node_modules/.bin/nyc report --reporter=json
@@ -110,7 +113,8 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.projectBaseDir=/home/circleci/project/ \
             -Dsonar.sources=. \
-            =Dsonar.exclusions=docs/**,test/**
+            -Dsonar.javascript.exclusions=**/docs/**,**/test/** \
+            -sonar.javascript.lcov.reportPaths=coverage/lcov.info \
             -Dsonar.login=${SONAR_LOGIN}
             cat -n .scannerwork/report-task.txt
       - save_cache:
