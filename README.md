@@ -4,9 +4,9 @@ Yet another general purpose JavaScript prototypes library
 
 ## Install
 
-```shell
-npm install --save @rcmedeiros/prototypes
-```
+`npm install --save @rcmedeiros/prototypes`
+
+This package comes with no dependencies whatsoever. You'll only get the kb from the source code.
 
 ## Usage
 
@@ -14,9 +14,10 @@ Just import it in the first module your package loads, maybe index.js/ts. No nee
 
 TypeScript typings are included.
 
-```javascript
+```typescript
 import '@rcmedeiros/prototypes';
 ```
+
 
 ## Reference
 

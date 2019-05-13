@@ -6,7 +6,7 @@ Yet another general purpose JavaScript prototypes library
 
 `npm install --save @rcmedeiros/prototypes`
 
-Thi package comes with no dependencies whatsoever. You'll only get the kb from the source code.
+This package comes with no dependencies whatsoever. You'll only get the kb from the source code.
 
 ## Usage
 

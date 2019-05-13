@@ -7,10 +7,10 @@
 
 Strips the string of accented characters, downgrading the encode to simple ASCII
 
-````typescript
+```typescript
 const sample = 'Façade Café Résumé'
 sample.toASCII(); // => Facade Cafe Resume
-````
+```
 
 ---
 
@@ -20,10 +20,10 @@ sample.toASCII(); // => Facade Cafe Resume
 
 Returns the string with the specified size, using the specified character to the lef to complete the length. If no character is specified, blank is assumed.
 
-````typescript
+```typescript
 '123'.leftPad(5,'_'); // => '__123'
 '123'.leftPad(5); // => '  123'
-````
+```
 
 ---
 
@@ -33,10 +33,10 @@ Returns the string with the specified size, using the specified character to the
 
 Returns the string with the specified size, using the specified character to the right to complete the length. If no character is specified, blank is assumed.
 
-````typescript
+```typescript
 '123'.leftPad(5,'_'); // => '123__'
 '123'.leftPad(5,); // => '123  '
-````
+```
 
 ---
 
@@ -46,10 +46,10 @@ Returns the string with the specified size, using the specified character to the
 
 Returns the string with the specified size, using the specified character to both sides to complete the length, centering the word. If no character is specified, blank is assumed. If the number is even, the string will be one position to the left
 
-````typescript
+```typescript
 '12'.centerPad(5, 'a'); // => 'a12aa'
 '12'.centerPad(3); // => '12 '
-````
+```
 
 ---
 
@@ -59,7 +59,7 @@ Returns the string with the specified size, using the specified character to bot
 
 Returns true if the string represents a number
 
-````typescript
+```typescript
 '0'.isNumeric(); // => true
 '-1'.isNumeric(); // => true
 '1'.isNumeric(); // => true
@@ -67,7 +67,7 @@ Returns true if the string represents a number
 '8e5'.isNumeric(); // => true
 '*2a'.isNumeric(); // => false
 '\t\t'.isNumeric(); // => false
-````
+```
 
 ---
 
@@ -77,9 +77,9 @@ Returns true if the string represents a number
 
 Returns the string in lower case, except for the first letter of each word which will be upper cased.
 
-````typescript
+```typescript
 'life before death'.capitalize(); // => 'Life Before Death'
-````
+```
 
 ---
 
@@ -89,10 +89,10 @@ Returns the string in lower case, except for the first letter of each word which
 
 Returns true if the substring is present, case sensitive
 
-````typescript
+```typescript
 'strength before weakness'.contains('after'); // false
 'journey before destination'.contains('destination'); // true
-````
+```
 
 ---
 
@@ -102,10 +102,10 @@ Returns true if the substring is present, case sensitive
 
 Returns true if the substring is present, regardless the case
 
-````typescript
+```typescript
 'I will protect those'.containsIgnoreCase('PROTECT'); // true
 'who cannot protect themselves'.containsIgnoreCase('Those';) // false
-````
+```
 
 ---
 
@@ -115,10 +115,10 @@ Returns true if the substring is present, regardless the case
 
 Returns the string up until the **first** occurrence of the the specified substring, exclusive and case sensitive.
 
-````typescript
+```typescript
 'I will unite instead of divide.'.substringUpTo('e');
 // => 'I will unit'
-````
+```
 
 ---
 
@@ -128,10 +128,10 @@ Returns the string up until the **first** occurrence of the the specified substr
 
 Returns the string up until the **last** occurrence of the the specified substring, exclusive and case sensitive.
 
-````typescript
+```typescript
 'I will unite instead of divide.'.substringUpToLast('e');
 // => 'I will unite instead of divid'
-````
+```
 
 ---
 
@@ -141,10 +141,10 @@ Returns the string up until the **last** occurrence of the the specified substri
 
 Returns the string from the **first** occurrence of the specified substring to the end. It's case sensitive.
 
-````typescript
+```typescript
 'I will remember those who have been forgotten.'.substringFrom('r');
 // => 'remember those who have been forgotten.'
-````
+```
 
 ---
 
@@ -154,10 +154,10 @@ Returns the string from the **first** occurrence of the specified substring to t
 
 Returns the string from the **last** occurrence of the specified substring to the end. It's case sensitive.
 
-````typescript
+```typescript
 'I will remember those who have been forgotten.'.substringFrom('r');
 // => 'gotten.'
-````
+```
 
 ---
 
@@ -167,10 +167,10 @@ Returns the string from the **last** occurrence of the specified substring to th
 
 Replaces the **first** occurrence of a substrings according to the declared arguments, regardless the case.
 
-````typescript
+```typescript
 'I will listen to those who have been ignored.'.replaceIgnoreCase('WHO HAVE', 'WHO\'VE');
 // => 'I will listen to those WHO'VE been ignored.'
-````
+```
 
 ---
 
@@ -180,10 +180,10 @@ Replaces the **first** occurrence of a substrings according to the declared argu
 
 Replaces all substrings according to the declared arguments. It's case sensitive.
 
-````typescript
+```typescript
 'I will protect even those I hate'.replaceAll(' ', '_');
 // => 'I_will_protect_even_those_I_hate'
-````
+```
 
 ---
 
@@ -193,10 +193,10 @@ Replaces all substrings according to the declared arguments. It's case sensitive
 
 Replaces all substrings according to the declared arguments, regardless the case.
 
-````typescript
+```typescript
 'I will take responsibility'.replaceAllIgnoreCase('i', '!');
 // => '! w!ll take respons!b!l!ty'
-````
+```
 
 ---
 

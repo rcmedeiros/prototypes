@@ -77,9 +77,9 @@ The same as the above function, accepting no separators as [pattern](./pattern.m
 const d = new Date(2019, 5, 11);
 d.fromFormattedNumber(20190906, 'yyyyMMdd');
 // => Sun Jun 09 2019 00:00:00 GMT+0000
+```
 
-
-___
+---
 
 ## toLocalISOString
 
@@ -102,5 +102,3 @@ Date.MAX = 8640000000000000; // Somewhere in 275.760 AD
 ```
 
 Returns minimum and maximum datetime values for sheer programmatic convenience.
-
----
