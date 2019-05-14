@@ -63,11 +63,11 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
-      - attach_workspace:
-          at: ./
       - restore_cache:
           name: Restore Development Dependencies
           key: dev_dependencies-{{ checksum "package.json" }}
+      - attach_workspace:
+          at: ./
       - run:
           name: Run ESLint
           command: |
@@ -134,8 +134,8 @@ workflows:
               only: develop
       - test:
           requires:
-            - dev_dependencies
             - stamp
+            - dev_dependencies
           filters:
             branches:
               only: develop
