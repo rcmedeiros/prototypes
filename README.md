@@ -6,13 +6,20 @@
 [![codecov](https://codecov.io/gh/rcmedeiros/prototypes/branch/master/graph/badge.svg)](https://codecov.io/gh/rcmedeiros/prototypes)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
-Yet another general purpose JavaScript prototypes library
+General purpose JavaScript prototypes library.
+
+Use it if you...
+
+* Must comply with [OWASP](https://www.owasp.org/index.php/Top_10-2017_Top_10) or [SANS](https://www.sans.org/top25-software-errors) and would avoid using any method which accept regular expressions as argument;
+* Would customize date representation without importing heavy packages;
+* Does lots of `Math` functions;
+* You're just lazy :)
 
 ## Install
 
 `npm install --save @rcmedeiros/prototypes`
 
-This package comes with no dependencies whatsoever. You'll only get the kb from the source code.
+This package comes with no dependencies whatsoever. You'll only get the ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@rcmedeiros/eslint-config.svg) from the source code.
 
 ## Usage
 
@@ -23,6 +30,8 @@ TypeScript typings are included.
 ```typescript
 import '@rcmedeiros/prototypes';
 ```
+
+  The module comes with its [Declaration File](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html), meaning it can be imported seamlessly to a TypeScript project.
 
 ## Reference
 
