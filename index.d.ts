@@ -10,10 +10,11 @@ interface String {
     substringUpToLast(str: string): string;
     substringFrom(str: string): string;
     substringFromLast(str: string): string;
-    replaceAll(find: string, replace: string): string;
-    replaceIgnoreCase(find: string, replace: string): string;
-    replaceAllIgnoreCase(find: string, replace: string): string;
-    capitalize(find: string, replace: string): string;
+    safeReplace(target: string, replacement: string): string;
+    replaceIgnoreCase(target: string, replacement: string): string;
+    replaceAll(target: string, replacement: string): string;
+    replaceAllIgnoreCase(target: string, replacement: string): string;
+    capitalize(): string;
     toDate(pattern: string): Date;
 }
 

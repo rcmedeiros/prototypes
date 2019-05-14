@@ -1,5 +1,12 @@
-<!-- cSpell: ignore façade café résumé rgotten fromformattedstring divid respons -->
+<!-- cSpell: ignore façade café résumé rgotten fromformattedstring divid respons safereplace -->
 # String
+
+!!! caution
+    Using regular expression is dangerous for it exposes your system to [ReDoS](https://en.wikipedia.org/wiki/ReDoS) attacks. Basically a malicious user could craft a special input to hang your server idle at 100%. Some reports from the past are [CVE-2017-16021](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16021), [CVE-2018-13863](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-13863), and [CVE-2018-8926](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8926).
+
+    Even if you're sure all submitted strings are trusted, quality software tools will raise security concerns pointing to any RegEx code.
+
+    So prefer the [safeReplace](#safereplace) function from this package instead of the bundled String.prototype.replace. There's also other permutations to replace first or all, case sensitive or insensitive.
 
 ## toASCII
 
@@ -73,7 +80,7 @@ Returns true if the string represents a number
 
 ## capitalize
 
-`String.prototype.capitalize(find: string, replace: string): string`
+`String.prototype.capitalize(): string`
 
 Returns the string in lower case, except for the first letter of each word which will be upper cased.
 
@@ -161,11 +168,25 @@ Returns the string from the **last** occurrence of the specified substring to th
 
 ---
 
+## safeReplace
+
+`String.prototype.safeReplace(target: string, replacement: string): string`
+
+Returns a new string with the **first** case sensitive occurrence of ***target*** replaced by the ***replacement*** string.
+Choose this function over the bundled String​.prototype​.replace() if you don't need to support regular expressions.
+
+```typescript
+'I will listen to those who have been ignored.'.replaceIgnoreCase('WHO HAVE', 'WHO\'VE');
+// => 'I will listen to those WHO'VE been ignored.'
+```
+
+---
+
 ## replaceIgnoreCase
 
-`String.prototype.replaceIgnoreCase(find: string, replace: string): string`
+`String.prototype.replaceIgnoreCase(target: string, replacement: string): string`
 
-Replaces the **first** occurrence of a substrings according to the declared arguments, regardless the case.
+Returns a new string with the **first** occurrence of ***target*** replaced by the ***replacement*** string, regardless the case.
 
 ```typescript
 'I will listen to those who have been ignored.'.replaceIgnoreCase('WHO HAVE', 'WHO\'VE');
@@ -176,9 +197,9 @@ Replaces the **first** occurrence of a substrings according to the declared argu
 
 ## replaceAll
 
-`String.prototype.replaceAll(find: string, replace: string): string`
+`String.prototype.replaceAll(target: string, replacement: string): string`
 
-Replaces all substrings according to the declared arguments. It's case sensitive.
+Returns a new string the **first** case sensitive occurrences of ***target*** replaced by the ***replacement*** string.
 
 ```typescript
 'I will protect even those I hate'.replaceAll(' ', '_');
@@ -189,9 +210,9 @@ Replaces all substrings according to the declared arguments. It's case sensitive
 
 ## replaceAllIgnoreCase
 
-`String.prototype.replaceAllIgnoreCase(find: string, replace: string): string`
+`String.prototype.replaceAllIgnoreCase(target: string, replacement: string): string`
 
-Replaces all substrings according to the declared arguments, regardless the case.
+Returns a new string with **all** case sensitive occurrences of ***target*** replaced by the ***replacement*** string.
 
 ```typescript
 'I will take responsibility'.replaceAllIgnoreCase('i', '!');

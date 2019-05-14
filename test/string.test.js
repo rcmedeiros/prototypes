@@ -153,11 +153,6 @@ describe('String extensions', () => {
             expect('I will listen to those who have been ignored.'.replaceIgnoreCase('WHO HAVE', 'WHO\'VE'))
                 .to.be.equal('I will listen to those WHO\'VE been ignored.');
         });
-        it('should return null if input is not a string', () => {
-            expect('whatever'.replaceIgnoreCase(true, 'WHO\'VE')).to.be.null;
-            expect('whatever'.replaceIgnoreCase(2, 'WHO\'VE')).to.be.null;
-            expect('whatever'.replaceIgnoreCase(new RegExp(/abc/), 'WHO\'VE')).to.be.null;
-        });
 
         it('should return the same string if pattern is not found', () => {
             expect('I will listen to those who have been ignored.'.replaceIgnoreCase('XYZ', 'X'))
@@ -171,11 +166,6 @@ describe('String extensions', () => {
         it('should replace accordingly', () => {
             expect('I will protect even those I hate'.replaceAll(' ', '_')).to.be.equal('I_will_protect_even_those_I_hate');
         });
-        it('should return null if input is not a string', () => {
-            expect('I will protect even those I hate'.replaceAll(true, 'X')).to.be.null;
-            expect('I will protect even those I hate'.replaceAll(2, 'X')).to.be.null;
-            expect('whatever'.replaceAll(new RegExp(/abc/), 'X')).to.be.null;
-        });
         it('should return the same string if pattern is not found', () => {
             expect('I will protect even those I hate'.replaceAll('XYZ', 'X')).to.be.equal('I will protect even those I hate');
             expect('I will protect even those I hate'.replaceAll('XYZ', 'X')).to.be.equal('I will protect even those I hate');
@@ -185,11 +175,6 @@ describe('String extensions', () => {
     describe('the replaceAllIgnoreCase() function', () => {
         it('should replace accordingly', () => {
             expect('I will take responsibility'.replaceAllIgnoreCase('i', '!')).to.be.equal('! w!ll take respons!b!l!ty');
-        });
-        it('should return null if input is not a string', () => {
-            expect('I will take responsibility'.replaceAllIgnoreCase(true, 'X')).to.be.null;
-            expect('I will take responsibility'.replaceAllIgnoreCase(2, 'X')).to.be.null;
-            expect('I will take responsibility'.replaceAllIgnoreCase(new RegExp(/abc/), 'X')).to.be.null;
         });
         it('should return the same string if pattern is not found', () => {
             expect('I will take responsibility'.replaceAllIgnoreCase('XYZ', 'X')).to.be.equal('I will take responsibility');
