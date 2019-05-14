@@ -451,6 +451,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#safereplace" title="safeReplace" class="md-nav__link">
+    safeReplace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#replaceignorecase" title="replaceIgnoreCase" class="md-nav__link">
     replaceIgnoreCase
   </a>
@@ -599,6 +606,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#safereplace" title="safeReplace" class="md-nav__link">
+    safeReplace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#replaceignorecase" title="replaceIgnoreCase" class="md-nav__link">
     replaceIgnoreCase
   </a>
@@ -645,9 +659,15 @@
                   <a href="https://github.com/rcmedeiros/prototypes/edit/develop/mkdocs/string.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <!-- cSpell: ignore façade café résumé rgotten fromformattedstring divid respons -->
+                <!-- cSpell: ignore façade café résumé rgotten fromformattedstring divid respons safereplace -->
 
 <h1 id="string">String</h1>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Using regular expression is dangerous for it exposes your system to <a href="https://en.wikipedia.org/wiki/ReDoS">ReDoS</a> attacks. Basically a malicious user could craft a special input to hang your server idle at 100%. Some reports from the past are <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16021">CVE-2017-16021</a>, <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-13863">CVE-2018-13863</a>, and <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8926">CVE-2018-8926</a>.</p>
+<p>Even if you&rsquo;re sure all submitted strings are trusted, quality software tools will raise security concerns pointing to any RegEx code.</p>
+<p>So prefer the <a href="#safereplace">safeReplace</a> function from this package instead of the bundled String.prototype.replace. There&rsquo;s also other permutations to replace first or all, case sensitive or insensitive.</p>
+</div>
 <h2 id="toascii">toASCII</h2>
 <p><code>String.prototype.toASCII(): string</code></p>
 <p>Strips the string of accented characters, downgrading the encode to simple ASCII</p>
@@ -699,7 +719,7 @@
 
 <hr />
 <h2 id="capitalize">capitalize</h2>
-<p><code>String.prototype.capitalize(find: string, replace: string): string</code></p>
+<p><code>String.prototype.capitalize(): string</code></p>
 <p>Returns the string in lower case, except for the first letter of each word which will be upper cased.</p>
 <div class="codehilite"><pre><span></span><span class="s1">&#39;life before death&#39;</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">();</span> <span class="c1">// =&gt; &#39;Life Before Death&#39;</span>
 </pre></div>
@@ -760,9 +780,19 @@
 
 
 <hr />
+<h2 id="safereplace">safeReplace</h2>
+<p><code>String.prototype.safeReplace(target: string, replacement: string): string</code></p>
+<p>Returns a new string with the <strong>first</strong> case sensitive occurrence of <strong><em>target</em></strong> replaced by the <strong><em>replacement</em></strong> string.<br />
+Choose this function over the bundled String​.prototype​.replace() if you don&rsquo;t need to support regular expressions.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;I will listen to those who have been ignored.&#39;</span><span class="p">.</span><span class="nx">replaceIgnoreCase</span><span class="p">(</span><span class="s1">&#39;WHO HAVE&#39;</span><span class="p">,</span> <span class="s1">&#39;WHO\&#39;VE&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;I will listen to those WHO&#39;VE been ignored.&#39;</span>
+</pre></div>
+
+
+<hr />
 <h2 id="replaceignorecase">replaceIgnoreCase</h2>
-<p><code>String.prototype.replaceIgnoreCase(find: string, replace: string): string</code></p>
-<p>Replaces the <strong>first</strong> occurrence of a substrings according to the declared arguments, regardless the case.</p>
+<p><code>String.prototype.replaceIgnoreCase(target: string, replacement: string): string</code></p>
+<p>Returns a new string with the <strong>first</strong> occurrence of <strong><em>target</em></strong> replaced by the <strong><em>replacement</em></strong> string, regardless the case.</p>
 <div class="codehilite"><pre><span></span><span class="s1">&#39;I will listen to those who have been ignored.&#39;</span><span class="p">.</span><span class="nx">replaceIgnoreCase</span><span class="p">(</span><span class="s1">&#39;WHO HAVE&#39;</span><span class="p">,</span> <span class="s1">&#39;WHO\&#39;VE&#39;</span><span class="p">);</span>
 <span class="c1">// =&gt; &#39;I will listen to those WHO&#39;VE been ignored.&#39;</span>
 </pre></div>
@@ -770,8 +800,8 @@
 
 <hr />
 <h2 id="replaceall">replaceAll</h2>
-<p><code>String.prototype.replaceAll(find: string, replace: string): string</code></p>
-<p>Replaces all substrings according to the declared arguments. It&rsquo;s case sensitive.</p>
+<p><code>String.prototype.replaceAll(target: string, replacement: string): string</code></p>
+<p>Returns a new string the <strong>first</strong> case sensitive occurrences of <strong><em>target</em></strong> replaced by the <strong><em>replacement</em></strong> string.</p>
 <div class="codehilite"><pre><span></span><span class="s1">&#39;I will protect even those I hate&#39;</span><span class="p">.</span><span class="nx">replaceAll</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">);</span>
 <span class="c1">// =&gt; &#39;I_will_protect_even_those_I_hate&#39;</span>
 </pre></div>
@@ -779,8 +809,8 @@
 
 <hr />
 <h2 id="replaceallignorecase">replaceAllIgnoreCase</h2>
-<p><code>String.prototype.replaceAllIgnoreCase(find: string, replace: string): string</code></p>
-<p>Replaces all substrings according to the declared arguments, regardless the case.</p>
+<p><code>String.prototype.replaceAllIgnoreCase(target: string, replacement: string): string</code></p>
+<p>Returns a new string with <strong>all</strong> case sensitive occurrences of <strong><em>target</em></strong> replaced by the <strong><em>replacement</em></strong> string.</p>
 <div class="codehilite"><pre><span></span><span class="s1">&#39;I will take responsibility&#39;</span><span class="p">.</span><span class="nx">replaceAllIgnoreCase</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
 <span class="c1">// =&gt; &#39;! w!ll take respons!b!l!ty&#39;</span>
 </pre></div>
