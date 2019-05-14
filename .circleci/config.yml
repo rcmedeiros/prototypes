@@ -214,6 +214,11 @@ jobs:
       - attach_workspace:
           at: ./
       - run: sudo apt-get install tree -y && tree -a
+      - run:
+          name: Stamp for deployment
+          command: |
+            cat package.json | jq --arg val $CIRCLE_TAG '.version = $val' > new_package.json
+            mv new_package.json package.json
       - when:
           condition: << parameters.alpha >>
           steps:

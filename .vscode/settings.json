@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "AGPL",
         "Cambria",
         "Jinja",
         "Pygments",
@@ -7,6 +8,7 @@
         "asinh",
         "atanh",
         "cbrt",
+        "codecov",
         "designators",
         "eqeqeq",
         "expm",
