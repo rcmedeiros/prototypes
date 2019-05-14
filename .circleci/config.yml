@@ -121,7 +121,7 @@ jobs:
           at: ./
       - run:
           name: Show tree
-          command: sudo apt-get install tree -y && tree -a -C -I .git/**
+          command: sudo apt-get install tree -y && tree -a
       - run:
           name: Publish
           command: npm publish --access public --tag dev --dry-run
