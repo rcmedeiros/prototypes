@@ -448,21 +448,26 @@
                 
                 
                 <h1 id="rcmedeirosprototypes">@rcmedeiros/prototypes</h1>
-<p>Yet another general purpose JavaScript prototypes library</p>
+<p>General purpose JavaScript prototypes library.</p>
+<p>Use it if you&hellip;</p>
+<ul>
+<li>Must comply with <a href="https://www.owasp.org/index.php/Top_10-2017_Top_10">OWASP</a> or <a href="https://www.sans.org/top25-software-errors">SANS</a> and would avoid using any method which accept regular expressions as argument;</li>
+<li>Customize dates representation but not that much to justify a heavy specialized package;</li>
+<li>Do lots of <code>Math</code> functions;</li>
+<li>&lsquo;re just lazy :)</li>
+</ul>
+<p>This package comes with no dependencies whatsoever. You&rsquo;ll only add the <img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/min/@rcmedeiros/prototypes.svg" /> from the source code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The module comes with its <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html">Declaration File</a>, meaning it can be imported seamlessly to a TypeScript project.</p>
+</div>
 <h2 id="install">Install</h2>
 <p><code>npm install --save @rcmedeiros/prototypes</code></p>
-<p>This package comes with no dependencies whatsoever. You&rsquo;ll only get the kb from the source code.</p>
 <h2 id="usage">Usage</h2>
 <p>Just import it in the first module your package loads, maybe index.js/ts. No need to keep reference.</p>
 <p>TypeScript typings are included.</p>
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="s1">&#39;@rcmedeiros/prototypes&#39;</span><span class="p">;</span>
 </pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The module comes with its <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html">Declaration File</a>, meaning it can be imported seamlessly to a TypeScript project.</p>
-</div>
                 
                   
                 
