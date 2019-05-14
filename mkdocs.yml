@@ -36,5 +36,5 @@ nav:
         - string: string.md
 theme: material
 extra_css:
-      - /css/theme.css
-      - /css/codehilite.css
+      - css/theme.css
+      - css/codehilite.css

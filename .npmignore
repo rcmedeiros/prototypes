@@ -1,3 +1,11 @@
 .*
 tslint.json
 test
+reports
+coverage
+*.yml
+*.md
+*.properties
+mkdocs
+docs
+README.md

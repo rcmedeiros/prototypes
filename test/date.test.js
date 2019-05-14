@@ -6,8 +6,6 @@ const chai = require('chai');
 const expect = chai.expect;
 
 describe('Date extensions', function () {
-
-
     describe('fromFormattedString()', function () {
         const emptyDate = new Date(0);
         const targetDate = new Date('2018-06-09T18:20:00-0000');
@@ -27,7 +25,8 @@ describe('Date extensions', function () {
             expect(() => emptyDate.fromFormattedString('02012006', 'ddMMyy')).to.throw('Pattern with no separators must match dateString\'s length');
             expect(() => emptyDate.fromFormattedString('0201/06', 'ddMMyyy')).to.throw('dateString should be full numeric');
             expect(() => emptyDate.fromFormattedString('20106', 'dMMyy')).to.throw('Only elements which assumes leading zeroes are allowed. \'d\' does not.');
-            expect(() => emptyDate.fromFormattedString('6/9/18 11:50 pm GMT +N5', 'M/d/yy h:m a z')).to.throw('Time zone should be represented in General Time Zone (GMT ±HH:mm) or ISO 8601 (±hh:mm, ±hhmm, ±hh)');
+            expect(() => emptyDate.fromFormattedString('6/9/18 11:50 pm GMT +N5', 'M/d/yy h:m a z'))
+                .to.throw('Time zone should be represented in General Time Zone (GMT ±HH:mm) or ISO 8601 (±hh:mm, ±hhmm, ±hh)');
             expect(() => emptyDate.fromFormattedString('6/9/18 11:50 p', 'M/d/yy h:m a')).to.throw('Expected AM/am or PM/pm. But got p.');
             expect(() => emptyDate.fromFormattedString('2/1/2006', 'dd/M/y')).to.throw('y is not a valid pattern element.');
         });
@@ -48,14 +47,13 @@ describe('Date extensions', function () {
             expect(() => emptyDate.fromFormattedNumber(160318, 'dd/MM/yy')).to.throw('Separator \'/\' not found in \'160318\'');
             expect(() => emptyDate.fromFormattedNumber(6318, 'dMyy')).to.throw('Only elements which assumes leading zeroes are allowed. \'d\' does not.');
         });
-
     });
 
     describe('toFormattedString()', function () {
         const timeZones = ['+0000', '+0100', '+0200', '+0300', '+0400', '+0430', '+0500', '+0530', '+0545',
             '+0600', '+0630', '+0700', '+0800', '+0845', '+0900', '+0930', '+1000', '+1030', '+1100', '+1200',
             '+1300', '+1345', '+1400', '-0100', '-0200', '-0230', '-0300', '-0400', '-0500', '-0600', '-0700',
-            '-0800', '-0900', '-0930', '-1000', '-1100', '-1200']
+            '-0800', '-0900', '-0930', '-1000', '-1100', '-1200'];
 
         const date = new Date(Date.UTC(1980, 5, 9, 23, 0, 30, 95));
         const morning1 = new Date(date);
@@ -91,10 +89,10 @@ describe('Date extensions', function () {
 
         it('should work in all time zones', function () {
             const date = new Date(Date.UTC(1980, 5, 9));
-            timeZones.forEach(tz => {
-                const utcShort = tz.slice(3, 5) !== '00' ? undefined : `${tz.slice(0, 3)}`
-                const utcLong = `${tz.slice(0, 3)}:${tz.slice(3, 5)}`
-                const gmt = `GMT ${tz.slice(0, 3)}:${tz.slice(3, 5)}`
+            timeZones.forEach((tz) => {
+                const utcShort = tz.slice(3, 5) !== '00' ? undefined : `${tz.slice(0, 3)}`;
+                const utcLong = `${tz.slice(0, 3)}:${tz.slice(3, 5)}`;
+                const gmt = `GMT ${tz.slice(0, 3)}:${tz.slice(3, 5)}`;
 
                 const d1 = date.toFormattedString(undefined, tz);
                 const d2 = date.toFormattedString(undefined, utcLong);
@@ -111,10 +109,15 @@ describe('Date extensions', function () {
                 if (tz[0] === '+') {
                     expect(d1.slice(11, 13) + d1.slice(14, 16)).to.be.equal(tz.slice(1));
                 } else {
-                    expect(`${(24 - parseInt(d1.slice(11, 13)) - (d1.slice(14, 15) != '0' ? 1 : 0)).toString().leftPad(2, '0')}${d1.slice(14, 16)}`)
+                    expect(`${(24 - parseInt(d1.slice(11, 13)) - (d1.slice(14, 15) !== '0' ? 1 : 0)).toString().leftPad(2, '0')}${d1.slice(14, 16)}`)
                         .to.be.equal(tz.slice(1));
                 }
             });
+        });
+
+        it('should not accept numbers as timezone', function () {
+            expect(() => new Date().toFormattedString('dd.MM.yyyy HH:mm:ss z', 180))
+                .to.throw('Time zone should be represented in General Time Zone (GMT ±HH:mm) or ISO 8601 (±hh:mm, ±hhmm, ±hh)');
         });
     });
 

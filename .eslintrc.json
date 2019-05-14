@@ -1,4 +1,5 @@
 {
+    "extends": "@rcmedeiros",
     "rules": {
         "no-extend-native": "off"
     }
