@@ -1,10 +1,13 @@
 # @rcmedeiros/prototypes
 
-[![npm version](https://badge.fury.io/js/%40rcmedeiros%2Feslint-config.svg)](https://badge.fury.io/js/%40rcmedeiros%2Feslint-config)
-![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@rcmedeiros/eslint-config.svg)
 ![CircleCI branch](https://img.shields.io/circleci/project/github/rcmedeiros/prototypes/master.svg)
 [![codecov](https://codecov.io/gh/rcmedeiros/prototypes/branch/master/graph/badge.svg)](https://codecov.io/gh/rcmedeiros/prototypes)
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=prototypes&metric=code_smells)](https://sonarcloud.io/dashboard?id=prototypes)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=prototypes&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=prototypes)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=prototypes&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=prototypes)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=prototypes&metric=security_rating)](https://sonarcloud.io/dashboard?id=prototypes)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=prototypes&metric=alert_status)](https://sonarcloud.io/dashboard?id=prototypes)
+
 
 General purpose JavaScript prototypes library.
 
@@ -15,7 +18,7 @@ Use it if you...
 * Do lots of `Math` functions;
 * 're just lazy :)
 
-This package comes with no dependencies whatsoever. You'll only add the ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@rcmedeiros/eslint-config.svg) from the source code.
+This package comes with no dependencies whatsoever. You'll only add the ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@rcmedeiros/prototypes.svg) from the source code.
 
 The module comes with its [Declaration File](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html), meaning it can be imported seamlessly to a TypeScript project.
 
