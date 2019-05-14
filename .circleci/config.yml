@@ -134,8 +134,8 @@ workflows:
               only: develop
       - test:
           requires:
-            - stamp
             - dev_dependencies
+            - stamp
           filters:
             branches:
               only: develop
