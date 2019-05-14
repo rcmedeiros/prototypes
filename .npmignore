@@ -8,3 +8,4 @@ coverage
 *.properties
 mkdocs
 docs
+README.md
