@@ -1,8 +1,4 @@
 # @rcmedeiros/prototypes
-[![npm version](https://badge.fury.io/js/%40rcmedeiros%2Feslint-config.svg)](https://badge.fury.io/js/%40rcmedeiros%2Feslint-config)
-![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@rcmedeiros/eslint-config.svg)
-![CircleCI branch](https://img.shields.io/circleci/project/github/rcmedeiros/prototypes/master.svg)
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 [![npm version](https://badge.fury.io/js/%40rcmedeiros%2Feslint-config.svg)](https://badge.fury.io/js/%40rcmedeiros%2Feslint-config)
 ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@rcmedeiros/eslint-config.svg)
