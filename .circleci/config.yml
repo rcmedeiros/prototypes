@@ -100,6 +100,11 @@ jobs:
           command:
             node ./.circleci/replace.js json-to-prop package.json version sonar-project.properties sonar.projectVersion
       - run:
+          name: peek
+          command: |
+            cat package.json
+            cat sonar-project.properties
+      - run:
           name: Sonarcloud Scan
           command: |
             ./sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.login=${SONAR_LOGIN}
@@ -129,6 +134,7 @@ workflows:
               only: develop
       - test:
           requires:
+            - stamp
             - dev_dependencies
           filters:
             branches:

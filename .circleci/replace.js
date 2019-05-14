@@ -22,7 +22,6 @@ const filePath = (arg) => {
 }
 
 const modes = { 'json-to-prop': 7 };
-console.log(JSON.stringify(process.argv));
 
 if (!modes[process.argv[2]] || process.argv.length !== modes[process.argv[2]]) {
     console.info(`
