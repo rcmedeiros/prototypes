@@ -106,17 +106,13 @@ jobs:
             chmod +x .circleci/install_sonar-scanner.sh
             ./.circleci/install_sonar-scanner.sh
       - run:
+          name: Stamp project verion
+          command:
+            node ./.circleci/replace.js json-to-prop package.json version sonar-project.properties sonar.projectVersion
+      - run:
           name: Sonarcloud Scan
-          command: |
-            ./sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner \
-            -Dsonar.projectKey=prototypes \
-            -Dsonar.organization=rcmedeiros-github \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.projectBaseDir=/home/circleci/project/ \
-            -Dsonar.sources=. \
-            -Dsonar.javascript.exclusions=**/docs/**,**/test/**,**/mkdocs/**,**/sonar-scanner*/** \
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
-            -Dsonar.login=${SONAR_LOGIN}
+          command:
+            ./sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.login=${SONAR_LOGIN}
             cat -n .scannerwork/report-task.txt
       - save_cache:
           name: Cache SonarQube Scanner
