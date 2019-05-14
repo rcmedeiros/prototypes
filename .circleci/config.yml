@@ -111,7 +111,7 @@ jobs:
             node ./.circleci/replace.js json-to-prop package.json version sonar-project.properties sonar.projectVersion
       - run:
           name: Sonarcloud Scan
-          command:
+          command: |
             ./sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.login=${SONAR_LOGIN}
             cat -n .scannerwork/report-task.txt
       - save_cache:
