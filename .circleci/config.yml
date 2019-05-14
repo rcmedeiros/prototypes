@@ -114,7 +114,7 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.projectBaseDir=/home/circleci/project/ \
             -Dsonar.sources=. \
-            -Dsonar.javascript.exclusions=**/docs/**,**/test/** \
+            -Dsonar.javascript.exclusions=**/docs/**,**/test/**,**/mkdocs/**,**/sonar-scanner*/** \
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
             -Dsonar.login=${SONAR_LOGIN}
             cat -n .scannerwork/report-task.txt
