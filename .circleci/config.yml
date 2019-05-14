@@ -112,6 +112,19 @@ jobs:
             - /home/circleci/.sonar
       - store_test_results:
           path: reports
+  deploy_dev:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ./
+      - run:
+          name: Show tree
+          command: sudo apt-get install tree -y && tree -a
+      - run:
+          name: Publish
+          command: npm publish --access public --tag dev --dry-run
 workflows:
   development_commit:
     jobs:
@@ -134,13 +147,13 @@ workflows:
           filters:
             branches:
               only: develop
-      # - deploy_dev:
-      #     requires:
-      #       - stamp
-      #       - test
-      #     filters:
-      #       branches:
-      #         only: develop
+      - deploy_dev:
+          requires:
+            - stamp
+            - test
+          filters:
+            branches:
+              only: develop
   # staging_commit:
   #   jobs:
   #     - stamp:
