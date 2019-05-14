@@ -189,7 +189,14 @@ jobs:
           command: cat .circleci/.release
       - restore_cache:
           key: release-{{ checksum ".circleci/.release" }}
-      - run: sudo apt-get install tree -y && tree -a
+      - run: sudo apt-get install tree -y
+      - run:
+          name: DRY RUN. VERIFY PRIOR TO APPROVAL!
+          command: |
+            cat package.json | jq --arg val $CIRCLE_TAG '.version = $val' > new_package.json
+            mv new_package.json package.json
+            tree -a
+            npm publish --access public --tag dryrun --dry-run
       - persist_to_workspace:
           root: ./
           paths:
@@ -213,12 +220,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
-      - run: sudo apt-get install tree -y && tree -a
-      - run:
-          name: Stamp for deployment
-          command: |
-            cat package.json | jq --arg val $CIRCLE_TAG '.version = $val' > new_package.json
-            mv new_package.json package.json
       - when:
           condition: << parameters.alpha >>
           steps:
