@@ -136,6 +136,8 @@ describe('String extensions', () => {
                 .to.be.equal('I will remember those who have been forgotten.');
             expect('I will remember those who have been forgotten.'.substringFrom('r'))
                 .to.be.equal('emember those who have been forgotten.');
+            expect('I will remember those who have been forgotten.'.substringFrom('x'))
+                .to.be.equal('');
         });
     });
 
@@ -197,7 +199,7 @@ describe('String extensions', () => {
 
     describe('the toDate() function', () => {
         it('should link to date prototype correctly', () => {
-            expect('09061980'.toDate('ddMMyyyy').getTime()).to.be.equal(new Date(1980, 5, 9, 0, 0).getTime());
+            expect('09061980'.toDate('ddMMyyyy').getTime()).to.be.equal(new Date(Date.UTC(1980, 5, 9, 0, 0)).getTime());
         });
     });
 });

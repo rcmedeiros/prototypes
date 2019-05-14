@@ -175,5 +175,10 @@ describe('Every Math function should be accessible directly from the number', fu
             expect((3).pow10(n)).to.be.equal(3 * Math.pow(10, n));
         });
     });
+
+    it('non-existent prototype', function () {
+        expect(() => (3).pow2(10))
+            .to.throw('3.pow2 is not a function'); ;
+    });
 });
 

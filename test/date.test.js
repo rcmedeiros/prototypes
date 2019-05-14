@@ -114,6 +114,11 @@ describe('Date extensions', function () {
                 }
             });
         });
+
+        it('should not accept numbers as timezone', function () {
+            expect(() => new Date().toFormattedString('dd.MM.yyyy HH:mm:ss z', 180))
+                .to.throw('Time zone should be represented in General Time Zone (GMT ±HH:mm) or ISO 8601 (±hh:mm, ±hhmm, ±hh)');
+        });
     });
 
     describe('toFormattedNumber()', function () {
