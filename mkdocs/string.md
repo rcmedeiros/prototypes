@@ -23,7 +23,10 @@ sample.toASCII(); // => Facade Cafe Resume
 
 ## leftPad
 
- `String.prototype.leftPad(size: number, pad?: string): string`
+ `String.prototype.leftPad(size: number, pad?: string): string`![deprecated](assets/deprecated.png)
+
+!!! Important
+    As of [ES2017](https://node.green/#ES2017) , use [String​.prototype​.pad​Start()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) instead.
 
 Returns the string with the specified size, using the specified character to the lef to complete the length. If no character is specified, blank is assumed.
 
@@ -36,7 +39,10 @@ Returns the string with the specified size, using the specified character to the
 
 ## rightPad
 
-`String.prototype.rightPad(size: number, pad?: string): string`
+`String.prototype.rightPad(size: number, pad?: string): string`![deprecated](assets/deprecated.png)
+
+!!! Important
+    As of [ES2017](https://node.green/#ES2017) , use [String​.prototype​.pad​End()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd) instead.
 
 Returns the string with the specified size, using the specified character to the right to complete the length. If no character is specified, blank is assumed.
 

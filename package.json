@@ -1,6 +1,6 @@
 {
   "name": "@rcmedeiros/prototypes",
-  "version": "1.0.0-dev",
+  "version": "1.0.1-dev",
   "description": "Yet another general purpose JavaScript prototypes library",
   "main": "index",
   "types": "index.d.ts",
@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/rcmedeiros/prototypes/issues"
   },
-  "homepage": "https://github.com/rcmedeiros/prototypes#readme",
+  "homepage": "http://www.rafaelmedeiros.eti.br/prototypes/",
   "devDependencies": {
     "@rcmedeiros/eslint-config": "^1.0.0",
     "@rcmedeiros/tslint-config": "^1.0.2",

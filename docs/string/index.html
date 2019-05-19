@@ -678,7 +678,11 @@
 
 <hr />
 <h2 id="leftpad">leftPad</h2>
-<p><code>String.prototype.leftPad(size: number, pad?: string): string</code></p>
+<p><code>String.prototype.leftPad(size: number, pad?: string): string</code><img alt="deprecated" src="../assets/deprecated.png" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>As of <a href="https://node.green/#ES2017">ES2017</a> , use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart">String​.prototype​.pad​Start()</a> instead.</p>
+</div>
 <p>Returns the string with the specified size, using the specified character to the lef to complete the length. If no character is specified, blank is assumed.</p>
 <div class="codehilite"><pre><span></span><span class="s1">&#39;123&#39;</span><span class="p">.</span><span class="nx">leftPad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">);</span> <span class="c1">// =&gt; &#39;__123&#39;</span>
 <span class="s1">&#39;123&#39;</span><span class="p">.</span><span class="nx">leftPad</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// =&gt; &#39;  123&#39;</span>
@@ -687,7 +691,11 @@
 
 <hr />
 <h2 id="rightpad">rightPad</h2>
-<p><code>String.prototype.rightPad(size: number, pad?: string): string</code></p>
+<p><code>String.prototype.rightPad(size: number, pad?: string): string</code><img alt="deprecated" src="../assets/deprecated.png" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>As of <a href="https://node.green/#ES2017">ES2017</a> , use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd">String​.prototype​.pad​End()</a> instead.</p>
+</div>
 <p>Returns the string with the specified size, using the specified character to the right to complete the length. If no character is specified, blank is assumed.</p>
 <div class="codehilite"><pre><span></span><span class="s1">&#39;123&#39;</span><span class="p">.</span><span class="nx">leftPad</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">);</span> <span class="c1">// =&gt; &#39;123__&#39;</span>
 <span class="s1">&#39;123&#39;</span><span class="p">.</span><span class="nx">leftPad</span><span class="p">(</span><span class="mi">5</span><span class="p">,);</span> <span class="c1">// =&gt; &#39;123  &#39;</span>
