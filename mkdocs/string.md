@@ -8,6 +8,30 @@
 
     So prefer the [safeReplace](#safereplace) function from this package instead of the bundled String.prototype.replace. There's also other permutations to replace first or all, case sensitive or insensitive.
 
+## firstChar
+
+`String.prototype.firstChar(): string`
+
+Equivalent to ''.charAt(0)
+
+```typescript
+'StormLight'.firstChar(); // => 'S'
+```
+
+---
+
+## lastChar
+
+`String.prototype.lastChar(): string`
+
+Equivalent to s.charAt(s.length -1);
+
+```typescript
+'StormLight'.lastChar(); // => 't'
+```
+
+---
+
 ## toASCII
 
 `String.prototype.toASCII(): string`

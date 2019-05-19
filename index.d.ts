@@ -1,5 +1,7 @@
 interface String {
     toASCII(): string;
+    firstChar(): string;
+    lastChar(): string;
     leftPad(size: number, pad?: string): string;
     rightPad(size: number, pad?: string): string;
     centerPad(size: number, pad?: string): string;
