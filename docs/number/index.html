@@ -355,13 +355,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#todate" title="toDate" class="md-nav__link">
-    toDate
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pow10" title="pow10" class="md-nav__link">
     pow10
   </a>
@@ -371,6 +364,13 @@
         <li class="md-nav__item">
   <a href="#single-argument-math-functions" title="Single argument Math functions" class="md-nav__link">
     Single argument Math functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#todate" title="toDate" class="md-nav__link">
+    toDate
   </a>
   
 </li>
@@ -424,13 +424,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#todate" title="toDate" class="md-nav__link">
-    toDate
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pow10" title="pow10" class="md-nav__link">
     pow10
   </a>
@@ -440,6 +433,13 @@
         <li class="md-nav__item">
   <a href="#single-argument-math-functions" title="Single argument Math functions" class="md-nav__link">
     Single argument Math functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#todate" title="toDate" class="md-nav__link">
+    toDate
   </a>
   
 </li>
@@ -466,10 +466,6 @@
                 <!-- cSpell: ignore fromformattednumber -->
 
 <h1 id="number">Number</h1>
-<h2 id="todate">toDate</h2>
-<p><code>Number&lt;T&gt;.prototype.toDate(pattern: string): Date</code></p>
-<p>Alias of <a href="../date/#fromformattednumber">Date.prototype.fromFormattedNumber</a></p>
-<hr />
 <h2 id="pow10">pow10</h2>
 <p><code>Number.prototype.pow10(exponent: number): number</code></p>
 <p>Returns the number raised n times to the power of 10</p>
@@ -488,6 +484,16 @@
 <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">abs</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">n</span><span class="p">.</span><span class="nx">floor</span><span class="p">()</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">n</span><span class="p">.</span><span class="nx">ceil</span><span class="p">()</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">n</span><span class="p">.</span><span class="nx">round</span><span class="p">()</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">n</span><span class="p">.</span><span class="nx">trunc</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// =&gt; 7, 8, 7, 7</span>
 </pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of ES2016, <code>Math.pow(x, y)</code> can ben stated as <code>x ** y</code></p>
+</div>
+<h2 id="todate">toDate</h2>
+<p><code>Number&lt;T&gt;.prototype.toDate(pattern: string): Date</code></p>
+<p>Alias of <a href="../date/#fromformattednumber">Date.prototype.fromFormattedNumber</a></p>
+<hr />
                 
                   
                 

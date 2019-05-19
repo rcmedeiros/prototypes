@@ -328,8 +328,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fromformattedstring" title="fromFormattedString" class="md-nav__link">
-    fromFormattedString
+  <a href="#constants" title="Constants" class="md-nav__link">
+    Constants
   </a>
   
 </li>
@@ -342,8 +342,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#toformattedstring" title="toFormattedString" class="md-nav__link">
-    toFormattedString
+  <a href="#fromformattedstring" title="fromFormattedString" class="md-nav__link">
+    fromFormattedString
   </a>
   
 </li>
@@ -356,15 +356,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tolocalisostring" title="toLocalISOString" class="md-nav__link">
-    toLocalISOString
+  <a href="#toformattedstring" title="toFormattedString" class="md-nav__link">
+    toFormattedString
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#constants" title="Constants" class="md-nav__link">
-    Constants
+  <a href="#tolocalisostring" title="toLocalISOString" class="md-nav__link">
+    toLocalISOString
   </a>
   
 </li>
@@ -447,8 +447,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fromformattedstring" title="fromFormattedString" class="md-nav__link">
-    fromFormattedString
+  <a href="#constants" title="Constants" class="md-nav__link">
+    Constants
   </a>
   
 </li>
@@ -461,8 +461,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#toformattedstring" title="toFormattedString" class="md-nav__link">
-    toFormattedString
+  <a href="#fromformattedstring" title="fromFormattedString" class="md-nav__link">
+    fromFormattedString
   </a>
   
 </li>
@@ -475,15 +475,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tolocalisostring" title="toLocalISOString" class="md-nav__link">
-    toLocalISOString
+  <a href="#toformattedstring" title="toFormattedString" class="md-nav__link">
+    toFormattedString
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#constants" title="Constants" class="md-nav__link">
-    Constants
+  <a href="#tolocalisostring" title="toLocalISOString" class="md-nav__link">
+    toLocalISOString
   </a>
   
 </li>
@@ -515,6 +515,24 @@
     * In an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> string, time zone designators are in the format <code>±hh:mm</code>, <code>±hhmm</code>, <code>±hh</code>, or an upper cased <code>Z</code> at the end. This <a href="https://time.is/Z">Z, or <em>Zulu Time</em></a>, is <a href="https://en.wikipedia.org/wiki/List_of_military_time_zones">the military designation</a> for UTC+0 and shortcuts to <code>+0000</code>.<br />
     * Buf if no time designators are provided, the ISO 8601 states that local time is to be assumed. <strong>Blatantly contradicting the standard, these functions will assume UTC instead.</strong></p>
 </div>
+<h2 id="constants">Constants</h2>
+<div class="codehilite"><pre><span></span><span class="nb">Date</span><span class="p">.</span><span class="nx">MIN</span> <span class="o">=</span> <span class="o">-</span><span class="mi">8640000000000000</span><span class="p">;</span> <span class="c1">// Somewhere in 271.821 BC</span>
+<span class="nb">Date</span><span class="p">.</span><span class="nx">MAX</span> <span class="o">=</span> <span class="mi">8640000000000000</span><span class="p">;</span> <span class="c1">// Somewhere in 275.760 AD</span>
+</pre></div>
+
+
+<p>Returns minimum and maximum datetime values for sheer programmatic convenience.</p>
+<hr />
+<h2 id="fromformattednumber">fromFormattedNumber</h2>
+<p><code>Date.prototype.fromFormattedNumber(dateNumber: number, pattern: string): Date</code></p>
+<p>The same as the above function, accepting only full elements with no separators as <a href="../pattern/">pattern</a>.</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">fromFormattedNumber</span><span class="p">(</span><span class="mi">20190906</span><span class="p">,</span> <span class="s1">&#39;yyyyMMdd&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; Sun Jun 09 2019 00:00:00 GMT+0000</span>
+</pre></div>
+
+
+<hr />
 <h2 id="fromformattedstring">fromFormattedString</h2>
 <p><code>Date.prototype.fromFormattedString(dateString: string, pattern: string): Date</code></p>
 <p>Returns a new Date object based on the informed <a href="../pattern/">pattern</a>.</p>
@@ -535,9 +553,10 @@
 <li>If a pattern element isn&rsquo;t recognized, an error will be raised.</li>
 </ul>
 <hr />
-<h2 id="fromformattednumber">fromFormattedNumber</h2>
-<p><code>Date.prototype.fromFormattedNumber(dateNumber: number, pattern: string): Date</code></p>
-<p>The same as the above function, accepting only full elements with no separators as <a href="../pattern/">pattern</a>.</p>
+<h2 id="toformattednumber">toFormattedNumber</h2>
+<p><code>toFormattedNumber(pattern?: string, timeZone?: string): string</code><br />
+<code>toFormattedNumber(pattern?: string, localTime?: boolean): string</code></p>
+<p>The same as the above function, accepting no separators as <a href="../pattern/">pattern</a>.</p>
 <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
 <span class="nx">d</span><span class="p">.</span><span class="nx">fromFormattedNumber</span><span class="p">(</span><span class="mi">20190906</span><span class="p">,</span> <span class="s1">&#39;yyyyMMdd&#39;</span><span class="p">);</span>
 <span class="c1">// =&gt; Sun Jun 09 2019 00:00:00 GMT+0000</span>
@@ -564,17 +583,6 @@
 
 
 <hr />
-<h2 id="toformattednumber">toFormattedNumber</h2>
-<p><code>toFormattedNumber(pattern?: string, timeZone?: string): string</code><br />
-<code>toFormattedNumber(pattern?: string, localTime?: boolean): string</code></p>
-<p>The same as the above function, accepting no separators as <a href="../pattern/">pattern</a>.</p>
-<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
-<span class="nx">d</span><span class="p">.</span><span class="nx">fromFormattedNumber</span><span class="p">(</span><span class="mi">20190906</span><span class="p">,</span> <span class="s1">&#39;yyyyMMdd&#39;</span><span class="p">);</span>
-<span class="c1">// =&gt; Sun Jun 09 2019 00:00:00 GMT+0000</span>
-</pre></div>
-
-
-<hr />
 <h2 id="tolocalisostring">toLocalISOString</h2>
 <p><code>Date.prototype.toLocalISOString(): string</code></p>
 <p>Returns local time in ISO 8601 format</p>
@@ -584,13 +592,6 @@
 
 
 <hr />
-<h2 id="constants">Constants</h2>
-<div class="codehilite"><pre><span></span><span class="nb">Date</span><span class="p">.</span><span class="nx">MIN</span> <span class="o">=</span> <span class="o">-</span><span class="mi">8640000000000000</span><span class="p">;</span> <span class="c1">// Somewhere in 271.821 BC</span>
-<span class="nb">Date</span><span class="p">.</span><span class="nx">MAX</span> <span class="o">=</span> <span class="mi">8640000000000000</span><span class="p">;</span> <span class="c1">// Somewhere in 275.760 AD</span>
-</pre></div>
-
-
-<p>Returns minimum and maximum datetime values for sheer programmatic convenience.</p>
                 
                   
                 
