@@ -1,14 +1,6 @@
 <!-- cSpell: ignore fromformattednumber -->
 # Number
 
-## toDate
-
-`Number<T>.prototype.toDate(pattern: string): Date`
-
-Alias of [Date.prototype.fromFormattedNumber](./date.md#fromformattednumber)
-
-___
-
 ## pow10
 
 `Number.prototype.pow10(exponent: number): number`
@@ -35,3 +27,14 @@ console.log(`${n.floor()}, ${n.ceil()}, ${n.round()}, ${n.trunc()}`); // => -8, 
 n = n.abs();
 console.log(`${n.floor()}, ${n.ceil()}, ${n.round()}, ${n.trunc()}`); // => 7, 8, 7, 7
 ```
+
+!!!note
+    As of ES2016, `Math.pow(x, y)` can ben stated as `x ** y`
+
+## toDate
+
+`Number<T>.prototype.toDate(pattern: string): Date`
+
+Alias of [Date.prototype.fromFormattedNumber](./date.md#fromformattednumber)
+
+___

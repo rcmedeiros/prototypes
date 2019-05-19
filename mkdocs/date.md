@@ -7,6 +7,31 @@
         * In an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) string, time zone designators are in the format `±hh:mm`, `±hhmm`, `±hh`, or an upper cased `Z` at the end. This [Z, or *Zulu Time*](https://time.is/Z), is [the military designation](https://en.wikipedia.org/wiki/List_of_military_time_zones) for UTC+0 and shortcuts to `+0000`.
         * Buf if no time designators are provided, the ISO 8601 states that local time is to be assumed. **Blatantly contradicting the standard, these functions will assume UTC instead.**
 
+## Constants
+
+```typescript
+Date.MIN = -8640000000000000; // Somewhere in 271.821 BC
+Date.MAX = 8640000000000000; // Somewhere in 275.760 AD
+```
+
+Returns minimum and maximum datetime values for sheer programmatic convenience.
+
+---
+
+## fromFormattedNumber
+
+`Date.prototype.fromFormattedNumber(dateNumber: number, pattern: string): Date`
+
+The same as the above function, accepting only full elements with no separators as [pattern](./pattern.md).
+
+```typescript
+const d = new Date(2019, 5, 11);
+d.fromFormattedNumber(20190906, 'yyyyMMdd');
+// => Sun Jun 09 2019 00:00:00 GMT+0000
+```
+
+---
+
 ## fromFormattedString
 
 `Date.prototype.fromFormattedString(dateString: string, pattern: string): Date`
@@ -30,11 +55,12 @@ d.fromFormattedString('6/9/19 11:50 pm GMT +05:30', 'M/d/yy h:m a z');
 
 ---
 
-## fromFormattedNumber
+## toFormattedNumber
 
-`Date.prototype.fromFormattedNumber(dateNumber: number, pattern: string): Date`
+`toFormattedNumber(pattern?: string, timeZone?: string): string`
+`toFormattedNumber(pattern?: string, localTime?: boolean): string`
 
-The same as the above function, accepting only full elements with no separators as [pattern](./pattern.md).
+The same as the above function, accepting no separators as [pattern](./pattern.md).
 
 ```typescript
 const d = new Date(2019, 5, 11);
@@ -66,21 +92,6 @@ d.toFormattedString('yyyy/MM/dd HH:mm:ss (z)', true); // 1980/06/09 13:00:30 (GM
 
 ---
 
-## toFormattedNumber
-
-`toFormattedNumber(pattern?: string, timeZone?: string): string`
-`toFormattedNumber(pattern?: string, localTime?: boolean): string`
-
-The same as the above function, accepting no separators as [pattern](./pattern.md).
-
-```typescript
-const d = new Date(2019, 5, 11);
-d.fromFormattedNumber(20190906, 'yyyyMMdd');
-// => Sun Jun 09 2019 00:00:00 GMT+0000
-```
-
----
-
 ## toLocalISOString
 
 `Date.prototype.toLocalISOString(): string`
@@ -94,11 +105,3 @@ d.toLocalISOString(); // Just like toISOString(), but in the local format
 
 ---
 
-## Constants
-
-```typescript
-Date.MIN = -8640000000000000; // Somewhere in 271.821 BC
-Date.MAX = 8640000000000000; // Somewhere in 275.760 AD
-```
-
-Returns minimum and maximum datetime values for sheer programmatic convenience.
