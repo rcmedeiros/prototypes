@@ -8,8 +8,8 @@ interface String {
     isNumeric(): boolean;
     containsIgnoreCase(str: string): string;
     contains(str: string): string;
-    strip(...targets: string): string;
-    stripIgnoreCase(...targets: string): string;
+    strip(...targets: Array<string>): string;
+    stripIgnoreCase(...targets: Array<string>): string;
     substringUpTo(str: string): string;
     substringUpToLast(str: string): string;
     substringFrom(str: string): string;
