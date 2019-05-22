@@ -186,6 +186,32 @@ Choose this function over the bundled String​.prototype​.replace() if you do
 
 ---
 
+## strip
+
+`String.prototype.strip(targets: string | Array<string>): string;`
+
+Strips the string of all characters or words passed to the function.
+
+```typescript
+'1980-06-09T19:00:00.000Z'.strip('-', ':', '.', 't', 'z');
+// => '19800609T190000000Z'
+```
+
+---
+
+## stripIgnoreCase
+
+`String.prototype.strip(targets: string | Array<string>): string;`
+
+Strips the string of all characters or words passed to the function, regardless the case
+
+```typescript
+'1980-06-09T19:00:00.000Z'.strip('-', ':', '.', 't', 'z');
+// => '19800609190000000'
+```
+
+---
+
 ## substringFrom
 
 `String.prototype.substringFrom(str: string): string`

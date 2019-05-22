@@ -1,4 +1,4 @@
-// cSpell:ignore aãàáäâ eèéëê iìíïî oóòôö uúùûü divid emember respons Myyyy
+// cSpell:ignore aãàáäâ eèéëê iìíïî oóòôö uúùûü divid emember respons Myyyy brisinger brisingr
 'use strict';
 
 require('../index');
@@ -40,7 +40,7 @@ describe('String extensions', () => {
         });
 
         it('empty string should return empty', () => {
-            expect(''.firstChar()).to.be.equal('');
+            expect(''.lastChar()).to.be.equal('');
         });
     });
 
@@ -203,6 +203,15 @@ describe('String extensions', () => {
     describe('toDate()', () => {
         it('should link to date prototype correctly', () => {
             expect('09061980'.toDate('ddMMyyyy').getTime()).to.be.equal(new Date(Date.UTC(1980, 5, 9, 0, 0)).getTime());
+        });
+    });
+
+    describe('strip() and stripIgnoreCase() ', () => {
+        it('should strip the string of all characters', () => {
+            expect('Brisinger'.strip('E'), 'single char').to.be.equal('Brisinger');
+            expect('Brisinger'.stripIgnoreCase('E'), 'single char ignore case').to.be.equal('Brisingr');
+            expect('1980-06-09T19:00:00.000Z'.strip('-', ':', '.', 't', 'z'), 'multiple chars').to.be.equal('19800609T190000000Z');
+            expect('1980-06-09T19:00:00.000Z'.stripIgnoreCase('-', ':', '.', 't', 'z'), 'multiple chars ignore case').to.be.equal('19800609190000000');
         });
     });
 });
