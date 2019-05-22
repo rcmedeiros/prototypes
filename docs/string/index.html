@@ -458,6 +458,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#strip" title="strip" class="md-nav__link">
+    strip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stripignorecase" title="stripIgnoreCase" class="md-nav__link">
+    stripIgnoreCase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#substringfrom" title="substringFrom" class="md-nav__link">
     substringFrom
   </a>
@@ -622,6 +636,20 @@
         <li class="md-nav__item">
   <a href="#safereplace" title="safeReplace" class="md-nav__link">
     safeReplace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strip" title="strip" class="md-nav__link">
+    strip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stripignorecase" title="stripIgnoreCase" class="md-nav__link">
+    stripIgnoreCase
   </a>
   
 </li>
@@ -820,6 +848,24 @@
 Choose this function over the bundled String​.prototype​.replace() if you don&rsquo;t need to support regular expressions.</p>
 <div class="codehilite"><pre><span></span><span class="s1">&#39;I will listen to those who have been ignored.&#39;</span><span class="p">.</span><span class="nx">replaceIgnoreCase</span><span class="p">(</span><span class="s1">&#39;WHO HAVE&#39;</span><span class="p">,</span> <span class="s1">&#39;WHO\&#39;VE&#39;</span><span class="p">);</span>
 <span class="c1">// =&gt; &#39;I will listen to those WHO&#39;VE been ignored.&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="strip">strip</h2>
+<p><code>String.prototype.strip(targets: string | Array&lt;string&gt;): string;</code></p>
+<p>Strips the string of all characters or words passed to the function.</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;1980-06-09T19:00:00.000Z&#39;</span><span class="p">.</span><span class="nx">strip</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;19800609T190000000Z&#39;</span>
+</pre></div>
+
+
+<hr />
+<h2 id="stripignorecase">stripIgnoreCase</h2>
+<p><code>String.prototype.strip(targets: string | Array&lt;string&gt;): string;</code></p>
+<p>Strips the string of all characters or words passed to the function, regardless the case</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;1980-06-09T19:00:00.000Z&#39;</span><span class="p">.</span><span class="nx">strip</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">);</span>
+<span class="c1">// =&gt; &#39;19800609190000000&#39;</span>
 </pre></div>
 
 
