@@ -1,4 +1,4 @@
-// cSpell:ignore aãàáäâ eèéëê iìíïî oóòôö uúùûü divid emember respons Myyyy
+// cSpell:ignore aãàáäâ eèéëê iìíïî oóòôö uúùûü divid emember respons Myyyy brisinger brisingr
 'use strict';
 
 require('../index');
@@ -6,7 +6,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 describe('String extensions', () => {
-    describe('the toASCII() function', () => {
+    describe('toASCII()', () => {
         it('should return only alphanumeric characters', () => {
             expect('aãàáäâ'.toASCII()).to.be.equal('aaaaaa');
             expect('aãàáäâ'.toUpperCase().toASCII()).to.be.equal('AAAAAA'.toUpperCase());
@@ -25,8 +25,26 @@ describe('String extensions', () => {
             expect('!@#$%^&**()_+=-'.toASCII()).to.be.equal('');
         });
     });
+    describe('firstChar()', () => {
+        it('should return the first char', () => {
+            expect('StormLight'.firstChar()).to.be.equal('S');
+        });
 
-    describe('the leftPad() function', () => {
+        it('empty string should return empty', () => {
+            expect(''.firstChar()).to.be.equal('');
+        });
+    });
+    describe('lastChar()', () => {
+        it('should return the last char', () => {
+            expect('StormLight'.lastChar()).to.be.equal('t');
+        });
+
+        it('empty string should return empty', () => {
+            expect(''.lastChar()).to.be.equal('');
+        });
+    });
+
+    describe('leftPad()', () => {
         it('should return same string with padding at left', () => {
             expect('12345'.leftPad(10, '_')).to.be.equal('_____12345');
         });
@@ -39,7 +57,7 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the rightPad() function', () => {
+    describe('rightPad()', () => {
         it('should return same string with padding at right', () => {
             expect('12345'.rightPad(10, '_')).to.be.equal('12345_____');
         });
@@ -52,7 +70,7 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the centerPad() function', () => {
+    describe('centerPad()', () => {
         it('should return same string with padding at right and left', () => {
             expect('123'.centerPad(5, '_')).to.be.equal('_123_');
         });
@@ -65,7 +83,7 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the isNumeric() function', () => {
+    describe('isNumeric()', () => {
         it('should return true for positive integers', () => {
             expect('0'.isNumeric()).to.be.true;
             expect('1'.isNumeric()).to.be.true;
@@ -93,13 +111,13 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the capitalize() function', () => {
+    describe('capitalize()', () => {
         it('should return the first letter upper case, rest as is', () => {
             expect('life before death'.capitalize()).to.be.equal('Life Before Death');
         });
     });
 
-    describe('the contains() function', () => {
+    describe('contains()', () => {
         it('should return wether or not a substring is present', () => {
             expect('strength before weakness'.contains('after')).to.be.false;
             expect('journey before destination'.contains('destination')).to.be.true;
@@ -107,7 +125,7 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the containsIgnoreCase() functions', () => {
+    describe('containsIgnoreCase()s', () => {
         it('should return wether or not a substring is present', () => {
             expect('journey before destination'.containsIgnoreCase('DESTINATION')).to.be.true;
             expect('I will protect those'.containsIgnoreCase('PROTECT')).to.be.true;
@@ -115,7 +133,7 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the substringUpTo() function', () => {
+    describe('substringUpTo()', () => {
         it('should return everything up to a point', () => {
             expect('I will unite instead of divide.'.substringUpTo('e')).to.be.equal('I will unit');
             expect('I will unite instead of divide.'.substringUpTo('o')).to.be.equal('I will unite instead ');
@@ -123,14 +141,14 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the substringUpToLast() functions', () => {
+    describe('substringUpToLast()s', () => {
         it('should return everything up to a point', () => {
             expect('I will unite instead of divide.'.substringUpToLast('e')).to.be.equal('I will unite instead of divid');
             expect('I will unite instead of divide.'.substringUpToLast()).to.be.equal('I will unite instead of divide.');
         });
     });
 
-    describe('the substringFrom() function', () => {
+    describe('substringFrom()', () => {
         it('should return everything from a point', () => {
             expect('I will remember those who have been forgotten.'.substringFrom(''))
                 .to.be.equal('I will remember those who have been forgotten.');
@@ -141,14 +159,14 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the substringFromLast() function', () => {
+    describe('substringFromLast()', () => {
         it('should return everything from a point', () => {
             expect('I will remember those who have been forgotten.'.substringFromLast('r')).to.be.equal('gotten.');
             expect('I will remember those who have been forgotten.'.substringFromLast()).to.be.equal('');
         });
     });
 
-    describe('the replaceIgnoreCase() function', () => {
+    describe('replaceIgnoreCase()', () => {
         it('should replace accordingly', () => {
             expect('I will listen to those who have been ignored.'.replaceIgnoreCase('WHO HAVE', 'WHO\'VE'))
                 .to.be.equal('I will listen to those WHO\'VE been ignored.');
@@ -162,7 +180,7 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the replaceAll() function', () => {
+    describe('replaceAll()', () => {
         it('should replace accordingly', () => {
             expect('I will protect even those I hate'.replaceAll(' ', '_')).to.be.equal('I_will_protect_even_those_I_hate');
         });
@@ -172,7 +190,7 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the replaceAllIgnoreCase() function', () => {
+    describe('replaceAllIgnoreCase()', () => {
         it('should replace accordingly', () => {
             expect('I will take responsibility'.replaceAllIgnoreCase('i', '!')).to.be.equal('! w!ll take respons!b!l!ty');
         });
@@ -182,9 +200,18 @@ describe('String extensions', () => {
         });
     });
 
-    describe('the toDate() function', () => {
+    describe('toDate()', () => {
         it('should link to date prototype correctly', () => {
             expect('09061980'.toDate('ddMMyyyy').getTime()).to.be.equal(new Date(Date.UTC(1980, 5, 9, 0, 0)).getTime());
+        });
+    });
+
+    describe('strip() and stripIgnoreCase() ', () => {
+        it('should strip the string of all characters', () => {
+            expect('Brisinger'.strip('E'), 'single char').to.be.equal('Brisinger');
+            expect('Brisinger'.stripIgnoreCase('E'), 'single char ignore case').to.be.equal('Brisingr');
+            expect('1980-06-09T19:00:00.000Z'.strip('-', ':', '.', 't', 'z'), 'multiple chars').to.be.equal('19800609T190000000Z');
+            expect('1980-06-09T19:00:00.000Z'.stripIgnoreCase('-', ':', '.', 't', 'z'), 'multiple chars ignore case').to.be.equal('19800609190000000');
         });
     });
 });

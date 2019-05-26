@@ -1,11 +1,15 @@
 interface String {
     toASCII(): string;
+    firstChar(): string;
+    lastChar(): string;
     leftPad(size: number, pad?: string): string;
     rightPad(size: number, pad?: string): string;
     centerPad(size: number, pad?: string): string;
     isNumeric(): boolean;
     containsIgnoreCase(str: string): string;
     contains(str: string): string;
+    strip(...targets: Array<string>): string;
+    stripIgnoreCase(...targets: Array<string>): string;
     substringUpTo(str: string): string;
     substringUpToLast(str: string): string;
     substringFrom(str: string): string;

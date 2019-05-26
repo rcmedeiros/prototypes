@@ -8,47 +8,14 @@
 
     So prefer the [safeReplace](#safereplace) function from this package instead of the bundled String.prototype.replace. There's also other permutations to replace first or all, case sensitive or insensitive.
 
-## toASCII
+## capitalize
 
-`String.prototype.toASCII(): string`
+`String.prototype.capitalize(): string`
 
-Strips the string of accented characters, downgrading the encode to simple ASCII
-
-```typescript
-const sample = 'Façade Café Résumé'
-sample.toASCII(); // => Facade Cafe Resume
-```
-
----
-
-## leftPad
-
- `String.prototype.leftPad(size: number, pad?: string): string`![deprecated](assets/deprecated.png)
-
-!!! Important
-    As of [ES2017](https://node.green/#ES2017) , use [String​.prototype​.pad​Start()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) instead.
-
-Returns the string with the specified size, using the specified character to the lef to complete the length. If no character is specified, blank is assumed.
+Returns the string in lower case, except for the first letter of each word which will be upper cased.
 
 ```typescript
-'123'.leftPad(5,'_'); // => '__123'
-'123'.leftPad(5); // => '  123'
-```
-
----
-
-## rightPad
-
-`String.prototype.rightPad(size: number, pad?: string): string`![deprecated](assets/deprecated.png)
-
-!!! Important
-    As of [ES2017](https://node.green/#ES2017) , use [String​.prototype​.pad​End()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd) instead.
-
-Returns the string with the specified size, using the specified character to the right to complete the length. If no character is specified, blank is assumed.
-
-```typescript
-'123'.leftPad(5,'_'); // => '123__'
-'123'.leftPad(5,); // => '123  '
+'life before death'.capitalize(); // => 'Life Before Death'
 ```
 
 ---
@@ -62,36 +29,6 @@ Returns the string with the specified size, using the specified character to bot
 ```typescript
 '12'.centerPad(5, 'a'); // => 'a12aa'
 '12'.centerPad(3); // => '12 '
-```
-
----
-
-## isNumeric
-
-`String.prototype.isNumeric(): boolean`
-
-Returns true if the string represents a number
-
-```typescript
-'0'.isNumeric(); // => true
-'-1'.isNumeric(); // => true
-'1'.isNumeric(); // => true
-'-1.7'.isNumeric(); // => true
-'8e5'.isNumeric(); // => true
-'*2a'.isNumeric(); // => false
-'\t\t'.isNumeric(); // => false
-```
-
----
-
-## capitalize
-
-`String.prototype.capitalize(): string`
-
-Returns the string in lower case, except for the first letter of each word which will be upper cased.
-
-```typescript
-'life before death'.capitalize(); // => 'Life Before Death'
 ```
 
 ---
@@ -122,28 +59,155 @@ Returns true if the substring is present, regardless the case
 
 ---
 
-## substringUpTo
+## firstChar
 
-`String.prototype.substringUpTo(str: string): string`
+`String.prototype.firstChar(): string`
 
-Returns the string up until the **first** occurrence of the the specified substring, exclusive and case sensitive.
+Equivalent to ''.charAt(0)
 
 ```typescript
-'I will unite instead of divide.'.substringUpTo('e');
-// => 'I will unit'
+'StormLight'.firstChar(); // => 'S'
 ```
 
 ---
 
-## substringUpToLast
+## isNumeric
 
-`String.prototype.substringUpToLast(str: string): string`
+`String.prototype.isNumeric(): boolean`
 
-Returns the string up until the **last** occurrence of the the specified substring, exclusive and case sensitive.
+Returns true if the string represents a number
 
 ```typescript
-'I will unite instead of divide.'.substringUpToLast('e');
-// => 'I will unite instead of divid'
+'0'.isNumeric(); // => true
+'-1'.isNumeric(); // => true
+'1'.isNumeric(); // => true
+'-1.7'.isNumeric(); // => true
+'8e5'.isNumeric(); // => true
+'*2a'.isNumeric(); // => false
+'\t\t'.isNumeric(); // => false
+```
+
+---
+
+## lastChar
+
+`String.prototype.lastChar(): string`
+
+Equivalent to s.charAt(s.length -1);
+
+```typescript
+'StormLight'.lastChar(); // => 't'
+```
+
+---
+
+## leftPad
+
+ `String.prototype.leftPad(size: number, pad?: string): string`![deprecated](assets/deprecated.png)
+
+!!! Important
+    As of [ES2017](https://node.green/#ES2017) , use [String​.prototype​.pad​Start()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) instead.
+
+Returns the string with the specified size, using the specified character to the lef to complete the length. If no character is specified, blank is assumed.
+
+```typescript
+'123'.leftPad(5,'_'); // => '__123'
+'123'.leftPad(5); // => '  123'
+```
+
+---
+
+## replaceAll
+
+`String.prototype.replaceAll(target: string, replacement: string): string`
+
+Returns a new string the **first** case sensitive occurrences of ***target*** replaced by the ***replacement*** string.
+
+```typescript
+'I will protect even those I hate'.replaceAll(' ', '_');
+// => 'I_will_protect_even_those_I_hate'
+```
+
+---
+
+## replaceAllIgnoreCase
+
+`String.prototype.replaceAllIgnoreCase(target: string, replacement: string): string`
+
+Returns a new string with **all** case sensitive occurrences of ***target*** replaced by the ***replacement*** string.
+
+```typescript
+'I will take responsibility'.replaceAllIgnoreCase('i', '!');
+// => '! w!ll take respons!b!l!ty'
+```
+
+---
+
+## replaceIgnoreCase
+
+`String.prototype.replaceIgnoreCase(target: string, replacement: string): string`
+
+Returns a new string with the **first** occurrence of ***target*** replaced by the ***replacement*** string, regardless the case.
+
+```typescript
+'I will listen to those who have been ignored.'.replaceIgnoreCase('WHO HAVE', 'WHO\'VE');
+// => 'I will listen to those WHO'VE been ignored.'
+```
+
+---
+
+## rightPad
+
+`String.prototype.rightPad(size: number, pad?: string): string`![deprecated](assets/deprecated.png)
+
+!!! Important
+    As of [ES2017](https://node.green/#ES2017) , use [String​.prototype​.pad​End()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd) instead.
+
+Returns the string with the specified size, using the specified character to the right to complete the length. If no character is specified, blank is assumed.
+
+```typescript
+'123'.leftPad(5,'_'); // => '123__'
+'123'.leftPad(5,); // => '123  '
+```
+
+---
+
+## safeReplace
+
+`String.prototype.safeReplace(target: string, replacement: string): string`
+
+Returns a new string with the **first** case sensitive occurrence of ***target*** replaced by the ***replacement*** string.
+Choose this function over the bundled String​.prototype​.replace() if you don't need to support regular expressions.
+
+```typescript
+'I will listen to those who have been ignored.'.replaceIgnoreCase('WHO HAVE', 'WHO\'VE');
+// => 'I will listen to those WHO'VE been ignored.'
+```
+
+---
+
+## strip
+
+`String.prototype.strip(targets: string | Array<string>): string;`
+
+Strips the string of all characters or words passed to the function.
+
+```typescript
+'1980-06-09T19:00:00.000Z'.strip('-', ':', '.', 't', 'z');
+// => '19800609T190000000Z'
+```
+
+---
+
+## stripIgnoreCase
+
+`String.prototype.strip(targets: string | Array<string>): string;`
+
+Strips the string of all characters or words passed to the function, regardless the case
+
+```typescript
+'1980-06-09T19:00:00.000Z'.strip('-', ':', '.', 't', 'z');
+// => '19800609190000000'
 ```
 
 ---
@@ -174,55 +238,41 @@ Returns the string from the **last** occurrence of the specified substring to th
 
 ---
 
-## safeReplace
+## substringUpTo
 
-`String.prototype.safeReplace(target: string, replacement: string): string`
+`String.prototype.substringUpTo(str: string): string`
 
-Returns a new string with the **first** case sensitive occurrence of ***target*** replaced by the ***replacement*** string.
-Choose this function over the bundled String​.prototype​.replace() if you don't need to support regular expressions.
+Returns the string up until the **first** occurrence of the the specified substring, exclusive and case sensitive.
 
 ```typescript
-'I will listen to those who have been ignored.'.replaceIgnoreCase('WHO HAVE', 'WHO\'VE');
-// => 'I will listen to those WHO'VE been ignored.'
+'I will unite instead of divide.'.substringUpTo('e');
+// => 'I will unit'
 ```
 
 ---
 
-## replaceIgnoreCase
+## substringUpToLast
 
-`String.prototype.replaceIgnoreCase(target: string, replacement: string): string`
+`String.prototype.substringUpToLast(str: string): string`
 
-Returns a new string with the **first** occurrence of ***target*** replaced by the ***replacement*** string, regardless the case.
+Returns the string up until the **last** occurrence of the the specified substring, exclusive and case sensitive.
 
 ```typescript
-'I will listen to those who have been ignored.'.replaceIgnoreCase('WHO HAVE', 'WHO\'VE');
-// => 'I will listen to those WHO'VE been ignored.'
+'I will unite instead of divide.'.substringUpToLast('e');
+// => 'I will unite instead of divid'
 ```
 
 ---
 
-## replaceAll
+## toASCII
 
-`String.prototype.replaceAll(target: string, replacement: string): string`
+`String.prototype.toASCII(): string`
 
-Returns a new string the **first** case sensitive occurrences of ***target*** replaced by the ***replacement*** string.
-
-```typescript
-'I will protect even those I hate'.replaceAll(' ', '_');
-// => 'I_will_protect_even_those_I_hate'
-```
-
----
-
-## replaceAllIgnoreCase
-
-`String.prototype.replaceAllIgnoreCase(target: string, replacement: string): string`
-
-Returns a new string with **all** case sensitive occurrences of ***target*** replaced by the ***replacement*** string.
+Strips the string of accented characters, downgrading the encode to simple ASCII
 
 ```typescript
-'I will take responsibility'.replaceAllIgnoreCase('i', '!');
-// => '! w!ll take respons!b!l!ty'
+const sample = 'Façade Café Résumé'
+sample.toASCII(); // => Facade Cafe Resume
 ```
 
 ---
