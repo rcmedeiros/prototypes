@@ -1,6 +1,6 @@
 {
   "name": "@rcmedeiros/prototypes",
-  "version": "1.1.0-dev",
+  "version": "1.2.0-dev",
   "description": "Yet another general purpose JavaScript prototypes library",
   "main": "index",
   "types": "index.d.ts",
@@ -30,14 +30,13 @@
   "homepage": "http://www.rafaelmedeiros.eti.br/prototypes/",
   "devDependencies": {
     "@rcmedeiros/eslint-config": "^1.0.0",
-    "@rcmedeiros/tslint-config": "^1.0.2",
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
-    "mocha": "^6.1.4",
-    "mocha-junit-reporter": "^1.22.0",
+    "mocha": "^6.2.3",
+    "mocha-junit-reporter": "^1.23.3",
     "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^14.1.1",
-    "tslint": "^5.16.0",
-    "typescript": "^3.4.5"
+    "tslint": "^5.20.1",
+    "typescript": "^3.9.7"
   }
 }
