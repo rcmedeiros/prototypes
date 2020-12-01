@@ -20,6 +20,9 @@ interface String {
     replaceAllIgnoreCase(target: string, replacement: string): string;
     capitalize(): string;
     toDate(pattern: string): Date;
+    format(...args: Array<unknown>): string;
+    interpolate(properties: { [name: string]: unknown }): string;
+    equalsIgnoreCase(str: string): boolean;
 }
 
 interface Array<T> {
