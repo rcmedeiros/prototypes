@@ -214,4 +214,60 @@ describe('String extensions', () => {
             expect('1980-06-09T19:00:00.000Z'.stripIgnoreCase('-', ':', '.', 't', 'z'), 'multiple chars ignore case').to.be.equal('19800609190000000');
         });
     });
+
+    describe('the format() function', function () {
+        it('should substitute correctly as expected', function () {
+            expect('string {0} number {1} boolean {2} string {3}'.format('string', 2, true, 3.4)).to.be.equal('string string number 2 boolean true string 3.4');
+        });
+        it('should ignore absent placeholders', function () {
+            expect('string {0} boolean {2} string {3}'.format('string', 2, true, 3.4)).to.be.equal('string string boolean true string 3.4');
+        });
+        it('should ignore extra placeholders', function () {
+            expect('string {4} boolean {2} string {3}'.format('string', 2, true, 3.4)).to.be.equal('string {4} boolean true string 3.4');
+        });
+        it('should not break', function () {
+            expect('string {4} boolean {2} string {3}'.format()).to.be.equal('string {4} boolean {2} string {3}');
+            expect('string {4} boolean {2} string {3}'.format(undefined)).to.be.equal('string {4} boolean {2} string {3}');
+            expect('string {4} boolean {2} string {3}'.format(null)).to.be.equal('string {4} boolean {2} string {3}');
+            expect('string boolean string'.format('string', 2, true, 3.4)).to.be.equal('string boolean string');
+        });
+    });
+
+    describe('the interpolate() function', function () {
+        const params = {
+            param0: 'string',
+            param1: 2,
+            param2: true,
+            param3: 3.4,
+        };
+        it('should substitute correctly as expected', function () {
+            expect('This {param0} {param1} has a {param2} value of {param3}'
+                .interpolate(params)).to.be.equal('This string 2 has a true value of 3.4');
+        });
+        it('should ignore absent placeholders', function () {
+            expect('This {param2} has a {param3} value of {param4}'
+                .interpolate(params)).to.be.equal('This true has a 3.4 value of {param4}');
+        });
+        it('should not break', function () {
+            expect('This {param2} has a {param3} value of {param4}'
+                .interpolate()).to.be.equal('This {param2} has a {param3} value of {param4}');
+            expect('This {param2} has a {param3} value of {param4}'
+                .interpolate(null)).to.be.equal('This {param2} has a {param3} value of {param4}');
+            expect('This {param2} has a {param3} value of {param4}'
+                .interpolate(undefined)).to.be.equal('This {param2} has a {param3} value of {param4}');
+            expect('This {param2} has a {param3} value of {param4}'
+                .interpolate('rá')).to.be.equal('This {param2} has a {param3} value of {param4}');
+        });
+    });
+
+    describe('the equalsIgnoreCase() function', function () {
+        it('should return true regardless the case', function () {
+            expect('Rafael'.equalsIgnoreCase('rafael')).to.be.true;
+            expect('RaFaEl'.equalsIgnoreCase('rAfAeL')).to.be.true;
+        });
+        it('should return false when not equal', function () {
+            expect('rafael'.equalsIgnoreCase('medeiros')).to.be.false;
+            expect('rafael'.equalsIgnoreCase('cota')).to.be.false;
+        });
+    });
 });

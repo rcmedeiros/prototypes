@@ -282,3 +282,49 @@ sample.toASCII(); // => Facade Cafe Resume
 `String.prototype.toDate(pattern: string): Date`
 
 Alias of [Date.prototype.fromFormattedString](./date.md#fromformattedstring)
+
+# .format
+
+*String.prototype.format(args: ...any): string;*
+
+Returns a string based on a template and it's arguments.
+Ordinals out of parameter's scope are kept in the string.
+````javascript
+'This {0} {1} has a {2} value of {3}'.format('string', 2, true, 3.4);
+// returns 'This string 2 has a true value of 3.4'
+
+'This {2} has a {3} value of {4}'.format('string', 2, true, 3.4);
+// returns 'This true has a 3.4 value of {4}'
+````
+
+---
+
+# .interpolate
+
+*String.prototype.interpolate(properties: {[name: string]: unknown}): string;*
+
+Returns a string based on a template and it's arguments.
+Variables not found are kept in the string.
+
+````javascript
+const params: {param0: 'string', param1: 2, param2: true, param3: 3.4};
+
+'This {param0} {param1} has a {param2} value of {param3}'.interpolate(params);
+// returns 'This string 2 has a true value of 3.4'
+
+'This {param2} has a {param3} value of {param4}'.interpolate(params);
+// returns 'This true has a 3.4 value of {param4}'
+````
+
+---
+
+# .equalsIgnoreCase
+
+*String.prototype.equalsIgnoreCase(str: string): boolean;*
+
+Returns true if the two strings are equal, regardless the case of each letter.
+
+````javascript
+'Rafael'.equalsIgnoreCase('rafael');
+// returns true
+````
