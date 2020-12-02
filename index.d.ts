@@ -74,3 +74,18 @@ interface Date {
     getEpochTime(): number;
 }
 
+declare const __moduleInfo: {
+    name: string;
+    scope: string;
+    version: string;
+    description: string;
+    homepage?: string;
+    keywords?: Array<string>;
+    author?: string;
+    contributors?: Array<string>;
+    main?: string;
+    repository?: { type: string, url: string }
+    scripts?: { [command: string]: string },
+    dependencies?: { [packageName: string]: string },
+    devDependencies?: { [packageName: string]: string },
+}
