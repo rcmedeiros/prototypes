@@ -82,6 +82,7 @@ declare const __moduleInfo: {
     homepage?: string;
     keywords?: Array<string>;
     author?: string;
+    license?: string;
     contributors?: Array<string>;
     main?: string;
     repository?: { type: string, url: string }
