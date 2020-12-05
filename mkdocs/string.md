@@ -283,7 +283,7 @@ sample.toASCII(); // => Facade Cafe Resume
 
 Alias of [Date.prototype.fromFormattedString](./date.md#fromformattedstring)
 
-# .format
+# format
 
 *String.prototype.format(args: ...any): string;*
 
@@ -299,7 +299,7 @@ Ordinals out of parameter's scope are kept in the string.
 
 ---
 
-# .interpolate
+# interpolate
 
 *String.prototype.interpolate(properties: {[name: string]: unknown}): string;*
 
@@ -318,7 +318,7 @@ const params: {param0: 'string', param1: 2, param2: true, param3: 3.4};
 
 ---
 
-# .equalsIgnoreCase
+# equalsIgnoreCase
 
 *String.prototype.equalsIgnoreCase(str: string): boolean;*
 
