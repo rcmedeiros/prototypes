@@ -494,12 +494,17 @@
 <p><code>Number&lt;T&gt;.prototype.toDate(pattern: string): Date</code></p>
 <p>Alias of <a href="../date/#fromformattednumber">Date.prototype.fromFormattedNumber</a></p>
 <hr />
-<h1 id="random">.random</h1>
-<p><em>Number.prototype.random(num: number, max?: number): number;</em></p>
+<h1 id="pseudorandom">.pseudoRandom</h1>
+<p><em>Number.prototype.pseudoRandom(num: number, max?: number): number;</em></p>
 <p>Returns a random number between <em>num</em> e <em>max</em>;<br />
 If <em>max</em> is omitted, returns a random number between 0 e <em>num</em>;<br />
 If <em>max</em> is greater then <em>num</em>, the values will be switched;</p>
 <p>Negative numbers are not allowed. Invalid values returns 0;</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This is a PSEUDO random function, based on JavaScript&rsquo;s Math.random(). It generates predictable values and should NOT be used in a context requiring unpredictability.<br />
+If that&rsquo;s the case, consider using <code>require('crypto').randomBytes(1)</code> instead.</p>
+</div>
                 
                   
                 
