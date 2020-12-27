@@ -39,12 +39,16 @@ Alias of [Date.prototype.fromFormattedNumber](./date.md#fromformattednumber)
 
 ___
 
-# .random
+# .pseudoRandom
 
-*Number.prototype.random(num: number, max?: number): number;*
+*Number.prototype.pseudoRandom(num: number, max?: number): number;*
 
 Returns a random number between *num* e *max*;
 If *max* is omitted, returns a random number between 0 e *num*;
 If *max* is greater then *num*, the values will be switched;
 
 Negative numbers are not allowed. Invalid values returns 0;
+
+!!! caution
+    This is a PSEUDO random function, based on JavaScript's Math.random(). It generates predictable values and should NOT be used in a context requiring unpredictability.
+    If that's the case, consider using `require('crypto').randomBytes(1)` instead.
