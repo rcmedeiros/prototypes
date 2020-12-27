@@ -39,9 +39,9 @@ Alias of [Date.prototype.fromFormattedNumber](./date.md#fromformattednumber)
 
 ___
 
-# .pseudoRandom
+## pseudoRandom
 
-*Number.prototype.pseudoRandom(num: number, max?: number): number;*
+`Number.prototype.pseudoRandom(num: number, max?: number): number;`
 
 Returns a random number between *num* e *max*;
 If *max* is omitted, returns a random number between 0 e *num*;

@@ -283,9 +283,9 @@ sample.toASCII(); // => Facade Cafe Resume
 
 Alias of [Date.prototype.fromFormattedString](./date.md#fromformattedstring)
 
-# format
+## format
 
-*String.prototype.format(args: ...any): string;*
+`String.prototype.format(args: ...any): string;`
 
 Returns a string based on a template and it's arguments.
 Ordinals out of parameter's scope are kept in the string.
@@ -299,9 +299,9 @@ Ordinals out of parameter's scope are kept in the string.
 
 ---
 
-# interpolate
+## interpolate
 
-*String.prototype.interpolate(properties: {[name: string]: unknown}): string;*
+`String.prototype.interpolate(properties: {[name: string]: unknown}): string;`
 
 Returns a string based on a template and it's arguments.
 Variables not found are kept in the string.
@@ -318,9 +318,9 @@ const params: {param0: 'string', param1: 2, param2: true, param3: 3.4};
 
 ---
 
-# equalsIgnoreCase
+## equalsIgnoreCase
 
-*String.prototype.equalsIgnoreCase(str: string): boolean;*
+`String.prototype.equalsIgnoreCase(str: string): boolean;`
 
 Returns true if the two strings are equal, regardless the case of each letter.
 
