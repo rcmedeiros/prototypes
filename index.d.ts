@@ -61,7 +61,7 @@ interface Number {
     tan(): number;
     tanh(): number;
     trunc(): number;
-    random(num: number, max?: number): number;
+    pseudoRandom(num: number, max?: number): number;
 }
 
 interface Date {
