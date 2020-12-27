@@ -182,3 +182,45 @@ describe('Every Math function should be accessible directly from the number', fu
     });
 });
 
+describe('the random() function', function () {
+    it('should return numbers within range', function () {
+        const last = Number().random(100, 1000);
+        for (let i = 0; i <= last; i++) {
+            const min = Number().random(0, 100);
+            const max = Number().random(1000, 10000);
+            const num = Number().random(min, max);
+            expect(num, `Expect ${num} between ${min} and ${max}`).to.be.at.least(min).and.at.most(max);
+        }
+    });
+    it('should swap range if max greater than num', function () {
+        const last = Number().random(100, 1000);
+        for (let i = 0; i <= last; i++) {
+            const min = Number().random(1000, 10000);
+            const max = Number().random(0, 100);
+            const num = Number().random(min, max);
+            expect(num, `Expect ${num} between ${max} and ${min}`).to.be.at.least(max).and.at.most(min);
+        }
+    });
+    it('If single positive number, should return numbers between 0 and the number', function () {
+        const last = Number().random(100, 1000);
+        for (let i = 0; i <= last; i++) {
+            const single = Number().random(1, 100);
+            const num = Number().random(single);
+            expect(num, `Expect ${num} between 0 and ${single}`).to.be.at.least(0).and.at.most(single);
+        }
+    });
+    it('Same numbers should return the number', function () {
+        const last = Number().random(100, 1000);
+        for (let i = 0; i <= last; i++) {
+            const single = Number().random(1, 100);
+            const num = Number().random(single, single);
+            expect(num, `Expect ${num} to be ${single}`).to.be.equals(single);
+        }
+    });
+    it('invalid values should return 0', function () {
+        expect(Number().random(-1000), 'Single negative numbers return 0').to.be.equal(0);
+        expect(Number().random(-1000, 1000), 'Negative numbers returns 0').to.be.equal(0);
+        expect(Number().random(0), 'Single 0 return 0').to.be.equal(0);
+    });
+});
+

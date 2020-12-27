@@ -38,3 +38,13 @@ console.log(`${n.floor()}, ${n.ceil()}, ${n.round()}, ${n.trunc()}`); // => 7, 8
 Alias of [Date.prototype.fromFormattedNumber](./date.md#fromformattednumber)
 
 ___
+
+# .random
+
+*Number.prototype.random(num: number, max?: number): number;*
+
+Returns a random number between *num* e *max*;
+If *max* is omitted, returns a random number between 0 e *num*;
+If *max* is greater then *num*, the values will be switched;
+
+Negative numbers are not allowed. Invalid values returns 0;
