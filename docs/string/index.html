@@ -513,6 +513,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#format" title="format" class="md-nav__link">
+    format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpolate" title="interpolate" class="md-nav__link">
+    interpolate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equalsignorecase" title="equalsIgnoreCase" class="md-nav__link">
+    equalsIgnoreCase
+  </a>
+  
+</li>
+      
       
       
       
@@ -692,6 +713,27 @@
         <li class="md-nav__item">
   <a href="#todate" title="toDate" class="md-nav__link">
     toDate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format" title="format" class="md-nav__link">
+    format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpolate" title="interpolate" class="md-nav__link">
+    interpolate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equalsignorecase" title="equalsIgnoreCase" class="md-nav__link">
+    equalsIgnoreCase
   </a>
   
 </li>
@@ -918,8 +960,8 @@ Choose this function over the bundled String​.prototype​.replace() if you do
 <h2 id="todate">toDate</h2>
 <p><code>String.prototype.toDate(pattern: string): Date</code></p>
 <p>Alias of <a href="../date/#fromformattedstring">Date.prototype.fromFormattedString</a></p>
-<h1 id="format">format</h1>
-<p><em>String.prototype.format(args: &hellip;any): string;</em></p>
+<h2 id="format">format</h2>
+<p><code>String.prototype.format(args: ...any): string;</code></p>
 <p>Returns a string based on a template and it&rsquo;s arguments.<br />
 Ordinals out of parameter&rsquo;s scope are kept in the string.</p>
 <div class="codehilite"><pre><span></span><span class="s1">&#39;This {0} {1} has a {2} value of {3}&#39;</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">);</span>
@@ -931,8 +973,8 @@ Ordinals out of parameter&rsquo;s scope are kept in the string.</p>
 
 
 <hr />
-<h1 id="interpolate">interpolate</h1>
-<p><em>String.prototype.interpolate(properties: {[name: string]: unknown}): string;</em></p>
+<h2 id="interpolate">interpolate</h2>
+<p><code>String.prototype.interpolate(properties: {[name: string]: unknown}): string;</code></p>
 <p>Returns a string based on a template and it&rsquo;s arguments.<br />
 Variables not found are kept in the string.</p>
 <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">params</span><span class="o">:</span> <span class="p">{</span><span class="nx">param0</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="nx">param1</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">param2</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">param3</span><span class="o">:</span> <span class="mf">3.4</span><span class="p">};</span>
@@ -946,8 +988,8 @@ Variables not found are kept in the string.</p>
 
 
 <hr />
-<h1 id="equalsignorecase">equalsIgnoreCase</h1>
-<p><em>String.prototype.equalsIgnoreCase(str: string): boolean;</em></p>
+<h2 id="equalsignorecase">equalsIgnoreCase</h2>
+<p><code>String.prototype.equalsIgnoreCase(str: string): boolean;</code></p>
 <p>Returns true if the two strings are equal, regardless the case of each letter.</p>
 <div class="codehilite"><pre><span></span><span class="s1">&#39;Rafael&#39;</span><span class="p">.</span><span class="nx">equalsIgnoreCase</span><span class="p">(</span><span class="s1">&#39;rafael&#39;</span><span class="p">);</span>
 <span class="c1">// returns true</span>
