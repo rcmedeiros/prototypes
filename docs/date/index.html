@@ -369,6 +369,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#period" title="period" class="md-nav__link">
+    period
+  </a>
+  
+</li>
+      
       
       
       
@@ -488,6 +495,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#period" title="period" class="md-nav__link">
+    period
+  </a>
+  
+</li>
+      
       
       
       
@@ -588,6 +602,17 @@
 <p>Returns local time in ISO 8601 format</p>
 <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
 <span class="nx">d</span><span class="p">.</span><span class="nx">toLocalISOString</span><span class="p">();</span> <span class="c1">// Just like toISOString(), but in the local format</span>
+</pre></div>
+
+
+<hr />
+<h2 id="period">period</h2>
+<p><code>Date.prototype.period(date?: Date): string</code></p>
+<p>Returns the length of period between two dates.<br />
+If a date argument is not provided, the difference will be between the date and now.</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">d1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">d2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+<span class="nx">d1</span><span class="p">.</span><span class="nx">period</span><span class="p">(</span><span class="nx">d2</span><span class="p">);</span> <span class="c1">// 37 days 11 hours 3 mins 25 secs</span>
 </pre></div>
 
 
