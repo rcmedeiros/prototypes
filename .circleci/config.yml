@@ -76,7 +76,7 @@ jobs:
           name: Run Tests!
           command:
             ./node_modules/.bin/nyc ./node_modules/.bin/mocha
-            --check-leaks --timeout 300 --recursive --exit test/*.test.js
+            --check-leaks --timeout 4000 --recursive --exit test/*.test.js
             --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/test-results.xml
       - run:
           name: Output reports
