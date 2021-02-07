@@ -73,6 +73,7 @@ interface Date {
     fromFormattedString(dateString: string, pattern: string): Date;
     fromFormattedNumber(dateNumber: number, pattern: string): Date;
     getEpochTime(): number;
+    period(date?: Date): string;
 }
 
 declare const __moduleInfo: {

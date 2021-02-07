@@ -142,4 +142,16 @@ describe('Date extensions', function () {
             expect(new Date(Date.MAX).toFormattedString()).to.be.equal('275760-09-13T00:00:00+0000');
         });
     });
+
+    describe('Period', function () {
+        it('should be printed', function (done) {
+            expect(new Date(2021, 0, 1).period(new Date(2021, 1, 7, 11, 3, 25))).to.be.equal('37 days 11 hours 3 mins 25 secs');
+
+            const date = new Date();
+            setTimeout(() => {
+                expect(date.period()).to.be.equal('3 secs');
+                done();
+            }, 3000);
+        });
+    });
 });

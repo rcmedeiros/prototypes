@@ -105,3 +105,17 @@ d.toLocalISOString(); // Just like toISOString(), but in the local format
 
 ---
 
+## period
+
+`Date.prototype.period(date?: Date): string`
+
+Returns the length of period between two dates.
+If a date argument is not provided, the difference will be between the date and now.
+
+```typescript
+const d1 = new Date(2021, 0, 1);
+const d2 = new Date(2021, 1, 7, 11, 3, 25);
+d1.period(d2); // 37 days 11 hours 3 mins 25 secs
+```
+
+---
