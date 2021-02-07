@@ -30,12 +30,12 @@
   "homepage": "http://www.rafaelmedeiros.eti.br/prototypes/",
   "devDependencies": {
     "@rcmedeiros/eslint-config": "^1.0.0",
-    "chai": "^4.2.0",
-    "eslint": "^7.14.0",
+    "chai": "^4.3.0",
+    "eslint": "^7.19.0",
     "mocha": "^8.2.1",
     "mocha-junit-reporter": "^2.0.0",
     "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^15.1.0",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.3"
   }
 }
