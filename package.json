@@ -10,8 +10,8 @@
   },
   "scripts": {
     "docs": "python -m mkdocs serve",
-    "coverage": "nyc --reporter=html mocha",
-    "test": "nyc mocha"
+    "coverage": "nyc --reporter=html mocha --timeout 4000",
+    "test": "nyc mocha --timeout 4000"
   },
   "repository": {
     "type": "git",

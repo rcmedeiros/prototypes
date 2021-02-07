@@ -145,7 +145,11 @@ describe('Date extensions', function () {
 
     describe('Period', function () {
         it('should be printed', function (done) {
-            expect(new Date(2021, 0, 1).period(new Date(2021, 1, 7, 11, 3, 25))).to.be.equal('37 days 11 hours 3 mins 25 secs');
+            const d1 = new Date(2021, 0, 1);
+            const d2 = new Date(2021, 1, 7, 11, 3, 25);
+
+            expect(d1.period(d2)).to.be.equal('37 days 11 hours 3 mins 25 secs');
+            expect(d2.period(d1)).to.be.equal('37 days 11 hours 3 mins 25 secs');
 
             const date = new Date();
             setTimeout(() => {
